@@ -1,0 +1,2129 @@
+[WARNING]         multiqc : MultiQC Version v1.14 now available!
+[INFO   ]         multiqc : This is MultiQC v1.10.1 (d64720f)
+[INFO   ]         multiqc : Template    : default
+[INFO   ]         multiqc : Searching   : /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/results/qc/fastqc
+Searching   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 12/12  
+[ERROR  ]         multiqc : Oops! The 'custom_content' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module custom_content raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/custom_content/custom_content.py", line 87, in custom_module_classes
+    bm = BaseMultiqcModule()
+         ^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'ngsderive' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module ngsderive raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/ngsderive/ngsderive.py", line 29, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'purple' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module purple raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/purple/purple.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'conpair' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module conpair raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/conpair/conpair.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'peddy' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module peddy raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/peddy/peddy.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'somalier' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module somalier raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/somalier/somalier.py", line 29, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'methylQA' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module methylQA raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/methylQA/methylQA.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'mosdepth' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module mosdepth raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/mosdepth/mosdepth.py", line 74, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'phantompeakqualtools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module phantompeakqualtools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/phantompeakqualtools/phantompeakqualtools.py", line 20, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'qualimap' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module qualimap raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/qualimap/qualimap.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'preseq' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module preseq raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/preseq/preseq.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'quast' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module quast raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/quast/quast.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'qorts' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module qorts raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/qorts/qorts.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'rna_seqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module rna_seqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/rna_seqc/rna_seqc.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'rockhopper' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module rockhopper raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/rockhopper/rockhopper.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'rsem' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module rsem raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/rsem/rsem.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'rseqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module rseqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/rseqc/rseqc.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'busco' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module busco raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/busco/busco.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'goleft_indexcov' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module goleft_indexcov raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/goleft_indexcov/goleft_indexcov.py", line 19, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'disambiguate' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module disambiguate raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/disambiguate/disambiguate.py", line 16, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'supernova' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module supernova raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/supernova/supernova.py", line 19, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'deeptools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module deeptools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/deeptools/deeptools.py", line 38, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'sargasso' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module sargasso raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/sargasso/sargasso.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'verifybamid' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module verifybamid raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/verifybamid/verifybamid.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'mirtrace' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module mirtrace raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/mirtrace/mirtrace.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'happy' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module happy raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/happy/happy.py", line 32, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'mirtop' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module mirtop raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/mirtop/mirtop.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'homer' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module homer raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/homer/homer.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'hops' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module hops raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/hops/hops.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'macs2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module macs2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/macs2/macs2.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'theta2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module theta2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/theta2/theta2.py", line 20, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'snpeff' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module snpeff raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/snpeff/snpeff.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'gatk' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module gatk raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/gatk/gatk.py", line 27, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'htseq' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module htseq raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/htseq/htseq.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bcftools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bcftools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bcftools/bcftools.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'featureCounts' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module featureCounts raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/featureCounts/feature_counts.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'fgbio' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module fgbio raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/fgbio/fgbio.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'dragen' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module dragen raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/dragen/dragen.py", line 42, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'dedup' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module dedup raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/dedup/dedup.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'damageprofiler' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module damageprofiler raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/damageprofiler/damageprofiler.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'biobambam2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module biobambam2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/biobambam2/biobambam2.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'jcvi' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module jcvi raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/jcvi/jcvi.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'mtnucratio' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module mtnucratio raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/mtnucratio/mtnucratio.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'picard' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module picard raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/picard/picard.py", line 44, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'sentieon' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module sentieon raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/sentieon/sentieon.py", line 30, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'prokka' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module prokka raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/prokka/prokka.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'qc3C' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module qc3C raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/qc3C/qc3C.py", line 137, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'samblaster' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module samblaster raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/samblaster/samblaster.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'samtools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module samtools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/samtools/samtools.py", line 28, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'sexdeterrmine' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module sexdeterrmine raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/sexdeterrmine/sexdeterrmine.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'eigenstratdatabasetools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module eigenstratdatabasetools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/eigenstratdatabasetools/eigenstratdatabasetools.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bamtools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bamtools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bamtools/bamtools.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'jellyfish' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module jellyfish raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/jellyfish/jellyfish.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'vcftools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module vcftools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/vcftools/vcftools.py", line 19, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'longranger' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module longranger raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/longranger/longranger.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'stacks' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module stacks raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/stacks/stacks.py", line 19, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'varscan2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module varscan2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/varscan2/varscan2.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bbmap' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bbmap raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bbmap/bbmap.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bismark' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bismark raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bismark/bismark.py", line 67, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'biscuit' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module biscuit raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/biscuit/biscuit.py", line 30, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'hicexplorer' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module hicexplorer raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/hicexplorer/hicexplorer.py", line 17, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'hicup' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module hicup raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/hicup/hicup.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'hicpro' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module hicpro raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/hicpro/hicpro.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'salmon' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module salmon raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/salmon/salmon.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'kallisto' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module kallisto raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/kallisto/kallisto.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'slamdunk' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module slamdunk raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/slamdunk/slamdunk.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'star' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module star raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/star/star.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'hisat2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module hisat2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/hisat2/hisat2.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'tophat' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module tophat raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/tophat/tophat.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bowtie2' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bowtie2 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bowtie2/bowtie2.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bowtie1' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bowtie1 raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bowtie1/bowtie1.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'snpsplit' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module snpsplit raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/snpsplit/snpsplit.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'kat' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module kat raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/kat/kat.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'leehom' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module leehom raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/leehom/leehom.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'adapterRemoval' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module adapterRemoval raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/adapterRemoval/adapterRemoval.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'clipandmerge' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module clipandmerge raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/clipandmerge/clipandmerge.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'cutadapt' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module cutadapt raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/cutadapt/cutadapt.py", line 28, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'flexbar' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module flexbar raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/flexbar/flexbar.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'kaiju' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module kaiju raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/kaiju/kaiju.py", line 20, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'kraken' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module kraken raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/kraken/kraken.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'malt' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module malt raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/malt/malt.py", line 20, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'trimmomatic' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module trimmomatic raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/trimmomatic/trimmomatic.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'sickle' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module sickle raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/sickle/sickle.py", line 17, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'skewer' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module skewer raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/skewer/skewer.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'sortmerna' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module sortmerna raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/sortmerna/sortmerna.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'biobloomtools' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module biobloomtools raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/biobloomtools/biobloomtools.py", line 20, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'fastq_screen' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module fastq_screen raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/fastq_screen/fastq_screen.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'afterqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module afterqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/afterqc/afterqc.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'fastp' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module fastp raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/fastp/fastp.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'fastqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module fastqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/fastqc/fastqc.py", line 36, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'pychopper' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module pychopper raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/pychopper/pychopper.py", line 21, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'pycoqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module pycoqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/pycoqc/pycoqc.py", line 19, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'minionqc' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module minionqc raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/minionqc/minionqc.py", line 22, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'multivcfanalyzer' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module multivcfanalyzer raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/multivcfanalyzer/multivcfanalyzer.py", line 25, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'clusterflow' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module clusterflow raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/clusterflow/clusterflow.py", line 28, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'bcl2fastq' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module bcl2fastq raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/bcl2fastq/bcl2fastq.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'interop' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module interop raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/interop/interop.py", line 14, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'ivar' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module ivar raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/ivar/ivar.py", line 23, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'flash' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module flash raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/flash/flash.py", line 26, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'seqyclean' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module seqyclean raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/seqyclean/seqyclean.py", line 18, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[ERROR  ]         multiqc : Oops! The 'optitype' MultiQC module broke... 
+  Please copy the following traceback and report it at https://github.com/ewels/MultiQC/issues 
+  If possible, please include a log file that triggers the error - the last file found was:
+    None
+============================================================
+Module optitype raised an exception: Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/multiqc.py", line 594, in run
+    output = mod()
+             ^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/optitype/optitype.py", line 24, in __init__
+    super(MultiqcModule, self).__init__(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/modules/base_module.py", line 45, in __init__
+    config.update({anchor: mod_cust_config.get("custom_config", {})})
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 250, in update
+    return update_dict(globals(), u)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f/lib/python3.11/site-packages/multiqc/utils/config.py", line 256, in update_dict
+    if isinstance(val, collections.Mapping):
+                       ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'collections' has no attribute 'Mapping'
+============================================================
+[WARNING]         multiqc : No analysis results found. Cleaning up..
+[INFO   ]         multiqc : MultiQC complete

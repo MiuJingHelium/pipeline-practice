@@ -1,0 +1,46 @@
+INFO  @ Thu, 03 Aug 2023 23:13:29: 
+# Command line: callpeak -t results/bams_sorted/GSM1102782_CD14_H3K27ac_hg19.sorted.bam --outdir results/macs2 -n GSM1102782_CD14_H3K27ac_hg19 -f BAM -g hs
+# ARGUMENTS LIST:
+# name = GSM1102782_CD14_H3K27ac_hg19
+# format = BAM
+# ChIP-seq file = ['results/bams_sorted/GSM1102782_CD14_H3K27ac_hg19.sorted.bam']
+# control file = None
+# effective genome size = 2.70e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 5.00e-02
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is off
+ 
+INFO  @ Thu, 03 Aug 2023 23:13:29: #1 read tag files... 
+INFO  @ Thu, 03 Aug 2023 23:13:29: #1 read treatment tags... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: 853275 reads have been read. 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1 tag size is determined as 36 bps 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1 tag size = 36.0 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1  total tags in treatment: 853275 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1 user defined the maximum tags... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1  tags after filtering in treatment: 735346 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1  Redundant rate of treatment: 0.14 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #1 finished! 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 Build Peak Model... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 looking for paired plus/minus strand peaks... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 number of paired peaks: 15618 
+INFO  @ Thu, 03 Aug 2023 23:13:31: start model_add_line... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: start X-correlation... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: end of X-cor 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 finished! 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 predicted fragment length is 293 bps 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2 alternative fragment length(s) may be 293 bps 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #2.2 Generate R script for model : results/macs2/GSM1102782_CD14_H3K27ac_hg19_model.r 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #3 Call peaks... 
+INFO  @ Thu, 03 Aug 2023 23:13:31: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Thu, 03 Aug 2023 23:13:35: #3 Call peaks for each chromosome... 
+INFO  @ Thu, 03 Aug 2023 23:13:36: #4 Write output xls file... results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.xls 
+INFO  @ Thu, 03 Aug 2023 23:13:36: #4 Write peak in narrowPeak format file... results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.narrowPeak 
+INFO  @ Thu, 03 Aug 2023 23:13:36: #4 Write summits bed file... results/macs2/GSM1102782_CD14_H3K27ac_hg19_summits.bed 
+INFO  @ Thu, 03 Aug 2023 23:13:36: Done! 

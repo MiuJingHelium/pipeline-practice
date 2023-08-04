@@ -1,0 +1,65 @@
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691099750.93956
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/93956.tmpdir
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	download_reference
+	1
+Select jobs to execute...
+
+[Thu Aug  3 21:55:55 2023]
+rule download_reference:
+    output: resources/indexes/hg19/hg19.fa.gz
+    log: logs/indexes/hg19/hg19.fa.gz.log
+    jobid: 0
+    wildcards: genome=hg19
+
+wget -O resources/indexes/hg19/hg19.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz &> logs/indexes/hg19/hg19.fa.gz.log
+[Thu Aug  3 21:57:29 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@compute1-exec-102.ris.wustl.edu>
+Subject: Job 93956: <sj12.download_reference.178.genome=hg19> in cluster <compute1-lsf> Done
+
+Job <sj12.download_reference.178.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:50 2023
+Job was executed on host(s) <compute1-exec-102.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:53 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 16:55:53 2023
+Terminated at Thu Aug  3 16:57:37 2023
+Results reported at Thu Aug  3 16:57:37 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.download_reference.12.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.31 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             8.60 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3991.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                22
+    Run time :                                   104 sec.
+    Turnaround time :                            107 sec.
+
+The output (if any) is above this job summary.
+

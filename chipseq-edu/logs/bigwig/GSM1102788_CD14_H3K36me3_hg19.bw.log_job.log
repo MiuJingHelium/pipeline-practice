@@ -1,0 +1,66 @@
+Sender: LSF System <lsfadmin@compute1-exec-138.ris.wustl.edu>
+Subject: Job 94678: <sj16.bam_bigwig.2111.sample=GSM1102788_CD14_H3K36me3.genome=hg19> in cluster <compute1-lsf> Done
+
+Job <sj16.bam_bigwig.2111.sample=GSM1102788_CD14_H3K36me3.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:36:22 2023
+Job was executed on host(s) <compute1-exec-138.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:36:23 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 17:36:23 2023
+Terminated at Thu Aug  3 17:38:01 2023
+Results reported at Thu Aug  3 17:38:01 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.bam_bigwig.16.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.29 sec.
+    Max Memory :                                 12 MB
+    Average Memory :                             8.60 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3988.00 MB
+    Max Swap :                                   -
+    Max Processes :                              8
+    Max Threads :                                28
+    Run time :                                   98 sec.
+    Turnaround time :                            99 sec.
+
+The output (if any) follows:
+
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691102182.94678
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/94678.tmpdir
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	bam_bigwig
+	1
+Select jobs to execute...
+
+[Thu Aug  3 22:36:25 2023]
+rule bam_bigwig:
+    input: results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam, results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bai
+    output: results/bigwig/GSM1102788_CD14_H3K36me3_hg19.bw
+    log: logs/bigwig/GSM1102788_CD14_H3K36me3_hg19.bw.log
+    jobid: 0
+    benchmark: logs/benchmarks/bigwig/GSM1102788_CD14_H3K36me3_hg19.bw.txt
+    wildcards: sample=GSM1102788_CD14_H3K36me3, genome=hg19
+
+bamCoverage -b results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam -o results/bigwig/GSM1102788_CD14_H3K36me3_hg19.bw &> logs/bigwig/GSM1102788_CD14_H3K36me3_hg19.bw.log
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/56a8cd6755a0b273be6114da236dcc79
+[Thu Aug  3 22:37:38 2023]
+Finished job 0.
+1 of 1 steps (100%) done

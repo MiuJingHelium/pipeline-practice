@@ -1,0 +1,71 @@
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691099750.93957
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/93957.tmpdir
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	reads_fastqc
+	1
+Select jobs to execute...
+
+[Thu Aug  3 21:55:55 2023]
+rule reads_fastqc:
+    input: reads/SRX252725/SRR787529.chr15.fastq
+    output: results/qc/fastqc/GSM1102788_CD14_H3K36me3.html, results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip
+    log: logs/qc/fastqc/GSM1102788_CD14_H3K36me3.html.log
+    jobid: 0
+    wildcards: sample=GSM1102788_CD14_H3K36me3
+    threads: 2
+
+/opt/conda/bin/python3.8 /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmp0gog7shy.wrapper.py
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/978900a19b5ceff48a633694e8144556
+fastqc  -t 2 --outdir /tmp/93957.tmpdir/tmp8bs6rbtb reads/SRX252725/SRR787529.chr15.fastq  > logs/qc/fastqc/GSM1102788_CD14_H3K36me3.html.log 2>&1
+mv /tmp/93957.tmpdir/tmp8bs6rbtb/SRR787529.chr15_fastqc.html results/qc/fastqc/GSM1102788_CD14_H3K36me3.html
+mv /tmp/93957.tmpdir/tmp8bs6rbtb/SRR787529.chr15_fastqc.zip results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip
+[Thu Aug  3 21:56:00 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@compute1-exec-102.ris.wustl.edu>
+Subject: Job 93957: <sj4.reads_fastqc.204.sample=GSM1102788_CD14_H3K36me3> in cluster <compute1-lsf> Done
+
+Job <sj4.reads_fastqc.204.sample=GSM1102788_CD14_H3K36me3> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:50 2023
+Job was executed on host(s) <2*compute1-exec-102.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:53 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 16:55:53 2023
+Terminated at Thu Aug  3 16:56:12 2023
+Results reported at Thu Aug  3 16:56:12 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.reads_fastqc.4.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.25 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             7.50 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3991.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                22
+    Run time :                                   19 sec.
+    Turnaround time :                            22 sec.
+
+The output (if any) is above this job summary.
+

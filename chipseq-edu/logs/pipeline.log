@@ -1,0 +1,944 @@
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691104324.96170
+[33mBuilding DAG of jobs...[0m
+[33mUsing shell: /bin/bash[0m
+[33mProvided cluster nodes: 50[0m
+[33mJob counts:
+	count	jobs
+	1	all
+	6	call_peak
+	1	reads_multiqc
+	8[0m
+[34mResources before job selection: {'_cores': 9223372036854775807, '_nodes': 50}[0m
+[34mReady jobs (7):
+	call_peak
+	call_peak
+	reads_multiqc
+	call_peak
+	call_peak
+	call_peak
+	call_peak[0m
+[33mSelect jobs to execute...[0m
+Welcome to the CBC MILP Solver 
+Version: 2.10.5 
+Build Date: Dec  8 2020 
+
+command line - cbc /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/5843deb57d064e50bd90b3fdfce63ef6-pulp.mps max branch printingOptions all solution /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/5843deb57d064e50bd90b3fdfce63ef6-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 7 COLUMNS
+At line 43 RHS
+At line 46 BOUNDS
+At line 54 ENDATA
+Problem MODEL has 2 rows, 7 columns and 14 elements
+Coin0008I MODEL read with 0 errors
+Continuous objective value is 14 - 0.00 seconds
+Cgl0004I processed model has 0 rows, 0 columns (0 integer (0 of which binary)) and 0 elements
+Cbc3007W No integer variables - nothing to do
+Cuts at root node changed objective from -14 to -1.79769e+308
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                14.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.02
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.04   (Wallclock seconds):       0.00
+
+[34mSelected jobs (7):
+	call_peak
+	call_peak
+	call_peak
+	reads_multiqc
+	call_peak
+	call_peak
+	call_peak[0m
+[34mResources after job selection: {'_cores': 9223372036854775800, '_nodes': 43}[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:38 2023][0m
+[32mlocalrule reads_multiqc:
+    input: results/qc/fastqc/GSM1102782_CD14_H3K27ac.html, results/qc/fastqc/GSM1102785_CD14_H3K27me3.html, results/qc/fastqc/GSM1102788_CD14_H3K36me3.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102797_CD14_H3K4me3.html, results/qc/fastqc/GSM1102807_CD14_input.html, results/qc/fastqc/GSM1102782_CD14_H3K27ac_fastqc.zip, results/qc/fastqc/GSM1102785_CD14_H3K27me3_fastqc.zip, results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip, results/qc/fastqc/GSM1102797_CD14_H3K4me3_fastqc.zip, results/qc/fastqc/GSM1102807_CD14_input_fastqc.zip
+    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data
+    log: logs/qc/multiqc/reads.log
+    jobid: 1[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:40 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam
+    output: results/macs2/GSM1102788_CD14_H3K36me3_hg19_peaks.xls, results/macs2/GSM1102788_CD14_H3K36me3_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102788_CD14_H3K36me3_hg19_callpeak.log
+    jobid: 30
+    wildcards: sample=GSM1102788_CD14_H3K36me3, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam"], "output": ["results/macs2/GSM1102788_CD14_H3K36me3_hg19_peaks.xls", "results/macs2/GSM1102788_CD14_H3K36me3_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102788_CD14_H3K36me3", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102788_CD14_H3K36me3_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 30, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102788_CD14_H3K36me3_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj30.call_peak.104.sample=GSM1102788_CD14_H3K36me3.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102788_CD14_H3K36me3_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.30.sh']
+[33mSubmitted job 30 with external jobid '96178'.[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:40 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102782_CD14_H3K27ac_hg19.sorted.bam
+    output: results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.xls, results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102782_CD14_H3K27ac_hg19_callpeak.log
+    jobid: 28
+    wildcards: sample=GSM1102782_CD14_H3K27ac, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102782_CD14_H3K27ac_hg19.sorted.bam"], "output": ["results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.xls", "results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102782_CD14_H3K27ac", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102782_CD14_H3K27ac_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 28, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102782_CD14_H3K27ac_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102782_CD14_H3K27ac_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj28.call_peak.130.sample=GSM1102782_CD14_H3K27ac.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102782_CD14_H3K27ac_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.28.sh']
+[33mpython -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[33mSubmitted job 28 with external jobid '96179'.[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:41 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102793_CD14_H3K4me1_hg19.sorted.bam
+    output: results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.xls, results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102793_CD14_H3K4me1_hg19_callpeak.log
+    jobid: 31
+    wildcards: sample=GSM1102793_CD14_H3K4me1, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102793_CD14_H3K4me1_hg19.sorted.bam"], "output": ["results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.xls", "results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102793_CD14_H3K4me1", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102793_CD14_H3K4me1_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 31, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102793_CD14_H3K4me1_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+[33mpython /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj31.call_peak.161.sample=GSM1102793_CD14_H3K4me1.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102793_CD14_H3K4me1_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.31.sh']
+[33mSubmitted job 31 with external jobid '96180'.[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:41 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102807_CD14_input_hg19.sorted.bam
+    output: results/macs2/GSM1102807_CD14_input_hg19_peaks.xls, results/macs2/GSM1102807_CD14_input_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102807_CD14_input_hg19_callpeak.log
+    jobid: 33
+    wildcards: sample=GSM1102807_CD14_input, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102807_CD14_input_hg19.sorted.bam"], "output": ["results/macs2/GSM1102807_CD14_input_hg19_peaks.xls", "results/macs2/GSM1102807_CD14_input_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102807_CD14_input", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102807_CD14_input_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 33, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102807_CD14_input_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102807_CD14_input_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj33.call_peak.192.sample=GSM1102807_CD14_input.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102807_CD14_input_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.33.sh']
+[33mSubmitted job 33 with external jobid '96181'.[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:41 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam
+    output: results/macs2/GSM1102785_CD14_H3K27me3_hg19_peaks.xls, results/macs2/GSM1102785_CD14_H3K27me3_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102785_CD14_H3K27me3_hg19_callpeak.log
+    jobid: 29
+    wildcards: sample=GSM1102785_CD14_H3K27me3, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam"], "output": ["results/macs2/GSM1102785_CD14_H3K27me3_hg19_peaks.xls", "results/macs2/GSM1102785_CD14_H3K27me3_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102785_CD14_H3K27me3", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102785_CD14_H3K27me3_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 29, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102785_CD14_H3K27me3_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj29.call_peak.218.sample=GSM1102785_CD14_H3K27me3.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102785_CD14_H3K27me3_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.29.sh']
+[33mSubmitted job 29 with external jobid '96182'.[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:42 2023][0m
+[32mrule call_peak:
+    input: results/bams_sorted/GSM1102797_CD14_H3K4me3_hg19.sorted.bam
+    output: results/macs2/GSM1102797_CD14_H3K4me3_hg19_peaks.xls, results/macs2/GSM1102797_CD14_H3K4me3_hg19_peaks.narrowPeak
+    log: logs/macs2/GSM1102797_CD14_H3K4me3_hg19_callpeak.log
+    jobid: 32
+    wildcards: sample=GSM1102797_CD14_H3K4me3, genome=hg19[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "call_peak", "local": false, "input": ["results/bams_sorted/GSM1102797_CD14_H3K4me3_hg19.sorted.bam"], "output": ["results/macs2/GSM1102797_CD14_H3K4me3_hg19_peaks.xls", "results/macs2/GSM1102797_CD14_H3K4me3_hg19_peaks.narrowPeak"], "wildcards": {"sample": "GSM1102797_CD14_H3K4me3", "genome": "hg19"}, "params": {}, "log": ["logs/macs2/GSM1102797_CD14_H3K4me3_hg19_callpeak.log"], "threads": 1, "resources": {}, "jobid": 32, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "biolabs/snakemake:6.4.1_conda4.10.1_py38", "email": "", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+ cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu && \
+/opt/conda/bin/python3.8 \
+-m snakemake results/macs2/GSM1102797_CD14_H3K4me3_hg19_peaks.narrowPeak --snakefile /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/Snakefile \
+--force -j --keep-target-files --keep-remote --max-inventory-time 0 \
+--wait-for-files /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri results/bams_sorted/GSM1102797_CD14_H3K4me3_hg19.sorted.bam /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/dfdd8dbba663206f3cd284790cdc82a8 --latency-wait 10 \
+ --attempt 1 --force-use-threads --scheduler ilp \
+--wrapper-prefix https://github.com/snakemake/snakemake-wrappers/raw/ \
+  -p --allowed-rules call_peak --nocolor --notemp --no-hooks --nolock --scheduler-solver-path /opt/conda/bin \
+--mode 2  --use-conda  --conda-base-path /opt/conda  && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1
+Key 'email' ignored: Undefined variables [email] in:  -N -u '{email}'
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj32.call_peak.244.sample=GSM1102797_CD14_H3K4me3.genome=hg19' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/logs/macs2/GSM1102797_CD14_H3K4me3_hg19_callpeak.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov'  -a 'docker(biolabs/snakemake:6.4.1_conda4.10.1_py38)' '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.ccifxpri/snakejob.call_peak.32.sh']
+[33mSubmitted job 32 with external jobid '96183'.[0m
+Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py", line 23, in <module>
+    shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1' returned non-zero exit status 1.
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py' returned non-zero exit status 1.
+[0m
+[32m[Thu Aug  3 23:12:47 2023][0m
+[31mError in rule reads_multiqc:[0m
+[31m    jobid: 1[0m
+[31m    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data[0m
+[31m    log: logs/qc/multiqc/reads.log (check log file(s) for error message)[0m
+[31m    conda-env: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[31m[0m
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+    raise ex
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+    run_func(*args)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+[0m
+[31mRuleException:
+CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd7x0nok9.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper[0m
+[33mTrying to restart job 1.[0m
+[34mResources before job selection: {'_cores': 9223372036854775801, '_nodes': 44}[0m
+[34mReady jobs (1):
+	reads_multiqc[0m
+[33mSelect jobs to execute...[0m
+Welcome to the CBC MILP Solver 
+Version: 2.10.5 
+Build Date: Dec  8 2020 
+
+command line - cbc /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/9beac12cd6f9400fac5897b0cf8d0108-pulp.mps max branch printingOptions all solution /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/9beac12cd6f9400fac5897b0cf8d0108-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 7 COLUMNS
+At line 13 RHS
+At line 16 BOUNDS
+At line 18 ENDATA
+Problem MODEL has 2 rows, 1 columns and 2 elements
+Coin0008I MODEL read with 0 errors
+Continuous objective value is 2 - 0.00 seconds
+Cgl0004I processed model has 0 rows, 0 columns (0 integer (0 of which binary)) and 0 elements
+Cbc3007W No integer variables - nothing to do
+Cuts at root node changed objective from -2 to -1.79769e+308
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.02
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.20   (Wallclock seconds):       0.02
+
+[34mSelected jobs (1):
+	reads_multiqc[0m
+[34mResources after job selection: {'_cores': 9223372036854775800, '_nodes': 43}[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:47 2023][0m
+[32mlocalrule reads_multiqc:
+    input: results/qc/fastqc/GSM1102782_CD14_H3K27ac.html, results/qc/fastqc/GSM1102785_CD14_H3K27me3.html, results/qc/fastqc/GSM1102788_CD14_H3K36me3.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102797_CD14_H3K4me3.html, results/qc/fastqc/GSM1102807_CD14_input.html, results/qc/fastqc/GSM1102782_CD14_H3K27ac_fastqc.zip, results/qc/fastqc/GSM1102785_CD14_H3K27me3_fastqc.zip, results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip, results/qc/fastqc/GSM1102797_CD14_H3K4me3_fastqc.zip, results/qc/fastqc/GSM1102807_CD14_input_fastqc.zip
+    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data
+    log: logs/qc/multiqc/reads.log
+    jobid: 1[0m
+[32m[0m
+[33mpython -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[33mpython /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1
+Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py", line 23, in <module>
+    shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1' returned non-zero exit status 1.
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py' returned non-zero exit status 1.
+[0m
+[32m[Thu Aug  3 23:12:54 2023][0m
+[31mError in rule reads_multiqc:[0m
+[31m    jobid: 1[0m
+[31m    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data[0m
+[31m    log: logs/qc/multiqc/reads.log (check log file(s) for error message)[0m
+[31m    conda-env: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[31m[0m
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+    raise ex
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+    run_func(*args)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+[0m
+[31mRuleException:
+CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkp5q5xru.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper[0m
+[33mTrying to restart job 1.[0m
+[34mResources before job selection: {'_cores': 9223372036854775801, '_nodes': 44}[0m
+[34mReady jobs (1):
+	reads_multiqc[0m
+[33mSelect jobs to execute...[0m
+Welcome to the CBC MILP Solver 
+Version: 2.10.5 
+Build Date: Dec  8 2020 
+
+command line - cbc /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/616bec79f46342a6901a5954363e8e43-pulp.mps max branch printingOptions all solution /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/616bec79f46342a6901a5954363e8e43-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 7 COLUMNS
+At line 13 RHS
+At line 16 BOUNDS
+At line 18 ENDATA
+Problem MODEL has 2 rows, 1 columns and 2 elements
+Coin0008I MODEL read with 0 errors
+Continuous objective value is 2 - 0.00 seconds
+Cgl0004I processed model has 0 rows, 0 columns (0 integer (0 of which binary)) and 0 elements
+Cbc3007W No integer variables - nothing to do
+Cuts at root node changed objective from -2 to -1.79769e+308
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.02
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.03   (Wallclock seconds):       0.00
+
+[34mSelected jobs (1):
+	reads_multiqc[0m
+[34mResources after job selection: {'_cores': 9223372036854775800, '_nodes': 43}[0m
+[32m[0m
+[32m[Thu Aug  3 23:12:54 2023][0m
+[32mlocalrule reads_multiqc:
+    input: results/qc/fastqc/GSM1102782_CD14_H3K27ac.html, results/qc/fastqc/GSM1102785_CD14_H3K27me3.html, results/qc/fastqc/GSM1102788_CD14_H3K36me3.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102797_CD14_H3K4me3.html, results/qc/fastqc/GSM1102807_CD14_input.html, results/qc/fastqc/GSM1102782_CD14_H3K27ac_fastqc.zip, results/qc/fastqc/GSM1102785_CD14_H3K27me3_fastqc.zip, results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip, results/qc/fastqc/GSM1102797_CD14_H3K4me3_fastqc.zip, results/qc/fastqc/GSM1102807_CD14_input_fastqc.zip
+    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data
+    log: logs/qc/multiqc/reads.log
+    jobid: 1[0m
+[32m[0m
+[33mpython -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[33mpython /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1
+Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py", line 23, in <module>
+    shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1' returned non-zero exit status 1.
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py' returned non-zero exit status 1.
+[0m
+[32m[Thu Aug  3 23:13:00 2023][0m
+[31mError in rule reads_multiqc:[0m
+[31m    jobid: 1[0m
+[31m    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data[0m
+[31m    log: logs/qc/multiqc/reads.log (check log file(s) for error message)[0m
+[31m    conda-env: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[31m[0m
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+    raise ex
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+    run_func(*args)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+[0m
+[31mRuleException:
+CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjfpqdfw.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper[0m
+[33mTrying to restart job 1.[0m
+[34mResources before job selection: {'_cores': 9223372036854775801, '_nodes': 44}[0m
+[34mReady jobs (1):
+	reads_multiqc[0m
+[33mSelect jobs to execute...[0m
+Welcome to the CBC MILP Solver 
+Version: 2.10.5 
+Build Date: Dec  8 2020 
+
+command line - cbc /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/1caa6fab641941078f0b3433402f9cec-pulp.mps max branch printingOptions all solution /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp/1caa6fab641941078f0b3433402f9cec-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 7 COLUMNS
+At line 13 RHS
+At line 16 BOUNDS
+At line 18 ENDATA
+Problem MODEL has 2 rows, 1 columns and 2 elements
+Coin0008I MODEL read with 0 errors
+Continuous objective value is 2 - 0.00 seconds
+Cgl0004I processed model has 0 rows, 0 columns (0 integer (0 of which binary)) and 0 elements
+Cbc3007W No integer variables - nothing to do
+Cuts at root node changed objective from -2 to -1.79769e+308
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.05
+Time (Wallclock seconds):       0.01
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.10   (Wallclock seconds):       0.01
+
+[34mSelected jobs (1):
+	reads_multiqc[0m
+[34mResources after job selection: {'_cores': 9223372036854775800, '_nodes': 43}[0m
+[32m[0m
+[32m[Thu Aug  3 23:13:00 2023][0m
+[32mlocalrule reads_multiqc:
+    input: results/qc/fastqc/GSM1102782_CD14_H3K27ac.html, results/qc/fastqc/GSM1102785_CD14_H3K27me3.html, results/qc/fastqc/GSM1102788_CD14_H3K36me3.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102797_CD14_H3K4me3.html, results/qc/fastqc/GSM1102807_CD14_input.html, results/qc/fastqc/GSM1102782_CD14_H3K27ac_fastqc.zip, results/qc/fastqc/GSM1102785_CD14_H3K27me3_fastqc.zip, results/qc/fastqc/GSM1102788_CD14_H3K36me3_fastqc.zip, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip, results/qc/fastqc/GSM1102797_CD14_H3K4me3_fastqc.zip, results/qc/fastqc/GSM1102807_CD14_input_fastqc.zip
+    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data
+    log: logs/qc/multiqc/reads.log
+    jobid: 1[0m
+[32m[0m
+[33mpython -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[33mpython /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py[0m
+[33mActivating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1
+Traceback (most recent call last):
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py", line 23, in <module>
+    shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  multiqc  --force -o results/qc/multiqc -n reads.html results/qc/fastqc  > logs/qc/multiqc/reads.log 2>&1' returned non-zero exit status 1.
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py' returned non-zero exit status 1.
+[0m
+[32m[Thu Aug  3 23:13:05 2023][0m
+[31mError in rule reads_multiqc:[0m
+[31m    jobid: 1[0m
+[31m    output: results/qc/multiqc/reads.html, results/qc/multiqc/reads_data[0m
+[31m    log: logs/qc/multiqc/reads.log (check log file(s) for error message)[0m
+[31m    conda-env: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f[0m
+[31m[0m
+[34mFull Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+    run(
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 53, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/wrapper.py", line 125, in wrapper
+    script(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 950, in script
+    executor.evaluate()
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 321, in evaluate
+    self.execute_script(fd.name, edit=edit)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 515, in execute_script
+    self._execute_cmd("{py_exec} {fname:q}", py_exec=py_exec, fname=fname)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/script.py", line 354, in _execute_cmd
+    return shell(
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/shell.py", line 234, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+    raise ex
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+    run_func(*args)
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+[0m
+[31mRuleException:
+CalledProcessError in line 24 of /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk:
+Command 'source /opt/conda/bin/activate '/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/c85d1f577c38c61775d501a740f6b68f'; set -euo pipefail;  python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpqzvxteh0.wrapper.py' returned non-zero exit status 1.
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+  File "/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/workflow/rules/reads_qc.smk", line 24, in __rule_reads_multiqc
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 574, in _callback
+  File "/opt/conda/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 560, in cached_or_run
+  File "/opt/conda/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2390, in run_wrapper[0m
+[33mJob failed, going on with independent jobs.[0m
+[32m[Thu Aug  3 23:13:41 2023][0m
+[32mFinished job 33.[0m
+[32m1 of 8 steps (12%) done[0m
+[32m[Thu Aug  3 23:13:51 2023][0m
+[32mFinished job 30.[0m
+[32m2 of 8 steps (25%) done[0m
+[32m[Thu Aug  3 23:13:51 2023][0m
+[32mFinished job 28.[0m
+[32m3 of 8 steps (38%) done[0m
+[32m[Thu Aug  3 23:13:51 2023][0m
+[32mFinished job 31.[0m
+[32m4 of 8 steps (50%) done[0m
+[32m[Thu Aug  3 23:13:51 2023][0m
+[32mFinished job 29.[0m
+[32m5 of 8 steps (62%) done[0m
+[32m[Thu Aug  3 23:13:51 2023][0m
+[32mFinished job 32.[0m
+[32m6 of 8 steps (75%) done[0m
+[31mExiting because a job execution failed. Look above for error message[0m
+[33mComplete log: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/log/2023-08-03T231226.499301.snakemake.log[0m
+[34munlocking[0m
+[34mremoving lock[0m
+[34mremoving lock[0m
+[34mremoved all locks[0m
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@compute1-exec-78.ris.wustl.edu>
+Subject: Job 96170: </usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --local-cores 4"> in cluster <compute1-lsf> Exited
+
+Job </usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --local-cores 4"> was submitted from host <compute1-client-1.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 18:12:04 2023
+Job was executed on host(s) <4*compute1-exec-78.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 18:12:05 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 18:12:05 2023
+Terminated at Thu Aug  3 18:14:10 2023
+Results reported at Thu Aug  3 18:14:10 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --local-cores 4"
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   10.33 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             8.65 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               4087.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                21
+    Run time :                                   125 sec.
+    Turnaround time :                            126 sec.
+
+The output (if any) is above this job summary.
+

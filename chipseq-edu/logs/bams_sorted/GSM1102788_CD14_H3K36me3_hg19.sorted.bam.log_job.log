@@ -1,0 +1,69 @@
+Sender: LSF System <lsfadmin@compute1-exec-114.ris.wustl.edu>
+Subject: Job 94607: <sj17.bam_sort.2004.sample=GSM1102788_CD14_H3K36me3.genome=hg19> in cluster <compute1-lsf> Done
+
+Job <sj17.bam_sort.2004.sample=GSM1102788_CD14_H3K36me3.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:36:00 2023
+Job was executed on host(s) <compute1-exec-114.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:36:01 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 17:36:01 2023
+Terminated at Thu Aug  3 17:36:20 2023
+Results reported at Thu Aug  3 17:36:20 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.bam_sort.17.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.26 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             7.80 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3991.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                23
+    Run time :                                   18 sec.
+    Turnaround time :                            20 sec.
+
+The output (if any) follows:
+
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691102160.94607
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/94607.tmpdir
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	bam_sort
+	1
+Select jobs to execute...
+
+[Thu Aug  3 22:36:03 2023]
+rule bam_sort:
+    input: results/bams/GSM1102788_CD14_H3K36me3_hg19.bam
+    output: results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam, results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bai
+    log: logs/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam.log
+    jobid: 0
+    benchmark: logs/benchmarks/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam.txt
+    wildcards: sample=GSM1102788_CD14_H3K36me3, genome=hg19
+
+python -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a
+python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmphj3ktjvt.wrapper.py
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a
+picard SortSam  VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=TRUE INPUT=results/bams/GSM1102788_CD14_H3K36me3_hg19.bam OUTPUT=results/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam SORT_ORDER=coordinate  2> logs/bams_sorted/GSM1102788_CD14_H3K36me3_hg19.sorted.bam.log
+[Thu Aug  3 22:36:16 2023]
+Finished job 0.
+1 of 1 steps (100%) done

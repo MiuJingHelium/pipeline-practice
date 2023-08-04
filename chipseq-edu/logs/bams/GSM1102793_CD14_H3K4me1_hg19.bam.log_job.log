@@ -1,0 +1,70 @@
+Sender: LSF System <lsfadmin@compute1-exec-158.ris.wustl.edu>
+Subject: Job 94589: <sj21.align_reads_se.1738.sample=GSM1102793_CD14_H3K4me1.genome=hg19> in cluster <compute1-lsf> Done
+
+Job <sj21.align_reads_se.1738.sample=GSM1102793_CD14_H3K4me1.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:35:20 2023
+Job was executed on host(s) <4*compute1-exec-158.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:35:21 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Thu Aug  3 17:35:21 2023
+Terminated at Thu Aug  3 17:35:52 2023
+Results reported at Thu Aug  3 17:35:52 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.align_reads_se.21.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.26 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             8.00 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3991.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                20
+    Run time :                                   32 sec.
+    Turnaround time :                            32 sec.
+
+The output (if any) follows:
+
+6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
+Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
+Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
+docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
+Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691102120.94589
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/94589.tmpdir
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	align_reads_se
+	1
+Select jobs to execute...
+
+[Thu Aug  3 22:35:23 2023]
+rule align_reads_se:
+    input: reads/SRX252730/SRR787524.chr15.fastq, results/indexes/hg19/hg19.1.bt2, results/indexes/hg19/hg19.2.bt2, results/indexes/hg19/hg19.3.bt2, results/indexes/hg19/hg19.4.bt2, results/indexes/hg19/hg19.rev.1.bt2, results/indexes/hg19/hg19.rev.2.bt2
+    output: results/bams/GSM1102793_CD14_H3K4me1_hg19.bam
+    log: logs/bams/GSM1102793_CD14_H3K4me1_hg19.bam.log
+    jobid: 0
+    benchmark: logs/benchmarks/bams/GSM1102793_CD14_H3K4me1_hg19.bam.txt
+    wildcards: sample=GSM1102793_CD14_H3K4me1, genome=hg19
+    threads: 4
+
+python -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
+python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmprevupwj9.wrapper.py
+Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
+(bowtie2 --threads 4  -x results/indexes/hg19/hg19 -U reads/SRX252730/SRR787524.chr15.fastq | samtools view -Sbh -o results/bams/GSM1102793_CD14_H3K4me1_hg19.bam -)  > logs/bams/GSM1102793_CD14_H3K4me1_hg19.bam.log 2>&1
+[Thu Aug  3 22:35:43 2023]
+Finished job 0.
+1 of 1 steps (100%) done
