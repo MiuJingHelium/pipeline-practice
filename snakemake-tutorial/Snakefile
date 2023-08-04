@@ -1,0 +1,19 @@
+#The template Snakefile
+rule target:
+	input:
+		"one.out",
+		"two.out"
+rule one:
+	input:
+		"foo"
+	output:
+		"one.out"
+	params:
+	
+rule two:
+	input:
+		"par"
+	ouput:
+		"two.out"
+	params:
+
