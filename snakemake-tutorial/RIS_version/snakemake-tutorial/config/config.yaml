@@ -1,0 +1,4 @@
+samples:
+        A: resources/data/samples/A.fastq
+        B: resources/data/samples/B.fastq
+        C: resources/data/samples/C.fastq

@@ -1,0 +1,9 @@
+Testing started on 8/4:
+	-local run was completed on 8/4
+	-RIS run started on 8/5, and job was unable to run. Reasons are i) dependencies (setting conda env), ii) export of LSF volumes, iii) cd into the file containing directory.
+	-All dependencies were able to be resolved on 8/7. Dependencies related to bamtools, samtools, and bcf were resolved on 8/5. Python script dependencies for making the histogram plot was unclear, so the entire environment.yaml file for creating the local conda environment was used for the final conda env. This allowed for the complete pipeline to the finished.
+
+Several changes were made in comparison to the local version:
+1) As a part of the tutorial, a config file was used for specifying the samples. 
+2) The environment.yaml was broken down into rule-specific yaml files. Unsure whether creating and activating conda environments within -c option is allowed. The attempt to "mamba create -f environment.yaml; conda activate snakemake-tutorial" failed but reason was not very clear. 
+3) The directory structure was updated to confer reproducibility and portability standard. i.e. results/ resources/ and workflow/ were created.

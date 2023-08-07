@@ -1,0 +1,7 @@
+channels:
+        - conda-forge
+        - bioconda
+dependencies:
+        - matplotlib
+        - pysam =0.19
+        - pygments

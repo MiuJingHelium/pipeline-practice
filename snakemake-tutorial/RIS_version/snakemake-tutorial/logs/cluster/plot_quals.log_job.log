@@ -1,0 +1,62 @@
+latest: Pulling from snakemake/snakemake
+5768ab67ba8c: Pulling fs layer
+818f432978e2: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+d27e272be7a2: Pulling fs layer
+77468f9af98a: Pulling fs layer
+c2d4d55e64d0: Pulling fs layer
+1f3c1cac507c: Pulling fs layer
+d27e272be7a2: Waiting
+c2d4d55e64d0: Waiting
+1f3c1cac507c: Waiting
+77468f9af98a: Waiting
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+818f432978e2: Verifying Checksum
+818f432978e2: Download complete
+5768ab67ba8c: Verifying Checksum
+5768ab67ba8c: Download complete
+d27e272be7a2: Verifying Checksum
+d27e272be7a2: Download complete
+1f3c1cac507c: Verifying Checksum
+1f3c1cac507c: Download complete
+5768ab67ba8c: Pull complete
+818f432978e2: Pull complete
+4f4fb700ef54: Pull complete
+77468f9af98a: Verifying Checksum
+77468f9af98a: Download complete
+d27e272be7a2: Pull complete
+c2d4d55e64d0: Verifying Checksum
+c2d4d55e64d0: Download complete
+77468f9af98a: Pull complete
+c2d4d55e64d0: Pull complete
+1f3c1cac507c: Pull complete
+Digest: sha256:61ae2739ed1b7d4c5256575f89fcf72f08dbe21ee9d72d36002abd6b7887079a
+Status: Downloaded newer image for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/177614.tmpdir
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954
+Select jobs to execute...
+
+[Mon Aug  7 21:23:55 2023]
+rule plot_quals:
+    input: results/calls/all.vcf
+    output: results/plots/quals.svg
+    jobid: 0
+    reason: Missing output files: results/plots/quals.svg
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp/177614.tmpdir
+
+python -c "from __future__ import print_function; import sys, json; print(json.dumps([sys.version_info.major, sys.version_info.minor]))"
+Activating conda environment: .snakemake/conda/c0c05295629a5cbea2e169799936561a_
+python /scratch1/fs1/martyomov/carisa/snakemake-tutorial/.snakemake/scripts/tmpxl6o_24_.plot-quals.py
+Activating conda environment: .snakemake/conda/c0c05295629a5cbea2e169799936561a_
+Not cleaning up /scratch1/fs1/martyomov/carisa/snakemake-tutorial/.snakemake/scripts/tmpxl6o_24_.plot-quals.py
+[Mon Aug  7 21:23:58 2023]
+Finished job 0.
+1 of 1 steps (100%) done

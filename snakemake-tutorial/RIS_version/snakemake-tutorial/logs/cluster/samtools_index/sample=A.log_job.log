@@ -1,0 +1,28 @@
+latest: Pulling from snakemake/snakemake
+Digest: sha256:1351b660bc80f7ccc9e2a6d1ab3e2e514f932453b516c550cc449e09723317a3
+Status: Image is up to date for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/144079.tmpdir
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954
+Select jobs to execute...
+
+[Sun Aug  6 15:53:14 2023]
+rule samtools_index:
+    input: results/sorted_reads/A.sorted.bam
+    output: results/sorted_reads/A.sorted.bam.bai
+    jobid: 0
+    reason: Missing output files: results/sorted_reads/A.sorted.bam.bai
+    wildcards: sample=A
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp/144079.tmpdir
+
+samtools index results/sorted_reads/A.sorted.bam
+Activating conda environment: .snakemake/conda/d0f779447fd0d67b271c0d84c6e19f37
+[Sun Aug  6 15:53:14 2023]
+Finished job 0.
+1 of 1 steps (100%) done

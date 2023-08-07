@@ -1,0 +1,170 @@
+stable: Pulling from snakemake/snakemake
+5768ab67ba8c: Pulling fs layer
+b3f0fa7d1454: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+35a0c74dd1a9: Pulling fs layer
+95412a5f61e0: Pulling fs layer
+7b8cf8c62034: Pulling fs layer
+e0845f9882ee: Pulling fs layer
+7b8cf8c62034: Waiting
+35a0c74dd1a9: Waiting
+95412a5f61e0: Waiting
+e0845f9882ee: Waiting
+4f4fb700ef54: Download complete
+5768ab67ba8c: Download complete
+35a0c74dd1a9: Verifying Checksum
+35a0c74dd1a9: Download complete
+b3f0fa7d1454: Verifying Checksum
+b3f0fa7d1454: Download complete
+e0845f9882ee: Verifying Checksum
+e0845f9882ee: Download complete
+5768ab67ba8c: Pull complete
+b3f0fa7d1454: Pull complete
+4f4fb700ef54: Pull complete
+95412a5f61e0: Verifying Checksum
+95412a5f61e0: Download complete
+35a0c74dd1a9: Pull complete
+7b8cf8c62034: Verifying Checksum
+7b8cf8c62034: Download complete
+95412a5f61e0: Pull complete
+7b8cf8c62034: Pull complete
+e0845f9882ee: Pull complete
+Digest: sha256:835890a4b7b621804160792cc17f3dd86419d3cd36cd7db63651cdac20a1945a
+Status: Downloaded newer image for snakemake/snakemake:stable
+docker.io/snakemake/snakemake:stable
+Using profile lsf_demo for setting default command line arguments.
+[33mBuilding DAG of jobs...[0m
+[35mYour conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.[0m
+[33mCreating conda environment workflow/envs/environment.yaml...[0m
+[33mDownloading and installing remote packages.[0m
+[34mRetrieving notices: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... 
+
+done
+[0m
+[33mEnvironment for /scratch1/fs1/martyomov/carisa/snakemake-tutorial/workflow/./envs/environment.yaml created (location: .snakemake/conda/c0c05295629a5cbea2e169799936561a_)[0m
+[33mUsing shell: /bin/bash[0m
+[33mProvided cluster nodes: 50[0m
+[33mJob stats:
+job           count
+----------  -------
+all               1
+plot_quals        1
+total             2
+[0m
+[34mResources before job selection: {'_cores': 9223372036854775807, '_nodes': 50}[0m
+[34mReady jobs (1)[0m
+[33mSelect jobs to execute...[0m
+[34mUsing greedy selector because only single job has to be scheduled.[0m
+[34mSelected jobs (1)[0m
+[34mResources after job selection: {'_cores': 9223372036854775806, '_nodes': 49}[0m
+[32m[0m
+[32m[Mon Aug  7 21:23:17 2023][0m
+[32mrule plot_quals:
+    input: results/calls/all.vcf
+    output: results/plots/quals.svg
+    jobid: 1
+    reason: Missing output files: results/plots/quals.svg
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>[0m
+[32m[0m
+[34mJobscript:
+#!/bin/bash
+# +++++++++++++++++++++++++++++++++++++++++++++
+# invoke with --jobscript
+
+# Propagate TMPDIR for LSF nodes:
+
+if [ -z "$__LSF_JOB_CUSTOM_TMPDIR__" ]
+then
+  # $__LSF_JOB_CUSTOM_TMPDIR__ is empty or not set:
+  if [[ ! -z "$__LSF_JOB_TMPDIR__" ]]; then
+    echo 'Set TMPDIR from $__LSF_JOB_TMPDIR__'
+    export TMPDIR=$__LSF_JOB_TMPDIR__
+  fi
+else
+  # # $__LSF_JOB_CUSTOM_TMPDIR__ is set and NOT empty
+  export TMPDIR=$__LSF_JOB_CUSTOM_TMPDIR__
+  echo 'Set TMPDIR from $__LSF_JOB_CUSTOM_TMPDIR__'
+fi
+
+echo "Job uses tempdir: TMPDIR=$TMPDIR"
+
+# Snakemake job properties:
+
+# properties = {"type": "single", "rule": "plot_quals", "local": false, "input": ["results/calls/all.vcf"], "output": ["results/plots/quals.svg"], "wildcards": {}, "params": {}, "log": [], "threads": 1, "resources": {"mem_mb": 1000, "mem_mib": 954, "disk_mb": 1000, "disk_mib": 954, "tmpdir": "<TBD>"}, "jobid": 1, "cluster": {"system": "lsf", "group": "/carisa/test-snakemake", "user_group": "compute-martyomov", "queue": "general", "docker": "snakemake/snakemake:latest", "email": "carisa@wustl.edu", "time": "120", "vmem": "4", "mem_ram": "4", "threads": "1", "job_workdir": "/home/carisa/", "default_jobs_logdir": "logs/cluster", "nodes": 1, "extra": "", "command_options": {"slurm": {"command": " sbatch --parsable", "key_mapping": {"name": " --job-name={name}", "threads": " -n {threads}", "vmem": " --mem={vmem}g", "account": " --account={account}", "queue": " --partition={queue}", "time": " --time={time}", "nodes": " -N {nodes}", "extra": " {extra}"}}, "pbs": {"command": " qsub", "key_mapping": {"job_workdir": " -d {job_workdir}", "name": " -N 'sj{jobid}.{name}.{pid}'", "queue": " -q '{queue}'", "nodes": " -l nodes={nodes}", "threads": ":ppn={threads},", "vmem": "vmem={vmem}gb,", "mem_ram": "mem={mem_ram}gb,", "time": "walltime={time}:00", "merge_std": " -j oe", "log": " -o '{log}_job.log'", "extra": " {extra}"}}, "lsf": {"command": " bsub", "key_mapping": {"job_workdir": " -cwd {job_workdir}", "resources": " -R \"select[mem>{mem_ram}000] rusage[mem={mem_ram}000] span[hosts={nodes}]\"", "name": " -J 'sj{jobid}.{name}.{pid}{job_name_wildcards_info}'", "queue": " -q '{queue}'", "threads": " -n '{threads}'", "mem_ram": " -M '{mem_ram}000'", "time": " -W '{time}'", "log": " -oo '{log}_job.log'", "group": " -g '{group}'", "user_group": " -G '{user_group}'", "email": " -N -u '{email}'", "account": " -P '{account}'", "extra": " {extra}", "docker": "  -a 'docker({docker})'", "jobscript": " '{jobscript}'"}}}}}
+
+# Snakemake job script:
+
+cd /scratch1/fs1/martyomov/carisa/snakemake-tutorial && /opt/conda/envs/snakemake/bin/python3.11 -m snakemake --snakefile '/scratch1/fs1/martyomov/carisa/snakemake-tutorial/workflow/Snakefile' --target-jobs 'plot_quals:' --allowed-rules 'plot_quals' --cores 'all' --attempt 1 --force-use-threads  --resources 'mem_mb=1000' 'mem_mib=954' 'disk_mb=1000' 'disk_mib=954' --wait-for-files '/scratch1/fs1/martyomov/carisa/snakemake-tutorial/.snakemake/tmp.ob_h7sws' 'results/calls/all.vcf' '/scratch1/fs1/martyomov/carisa/snakemake-tutorial/.snakemake/conda/c0c05295629a5cbea2e169799936561a_' --force --keep-target-files --keep-remote --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --rerun-triggers 'software-env' 'code' 'params' 'input' 'mtime' --skip-script-cleanup  --use-conda  --conda-frontend 'mamba' --conda-base-path '/opt/conda' --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 10 --scheduler 'ilp' --scheduler-solver-path '/opt/conda/envs/snakemake/bin' --default-resources 'mem_mb=max(2*input.size_mb, 1000)' 'disk_mb=max(2*input.size_mb, 1000)' 'tmpdir=system_tmpdir' --mode 2 && exit 0 || exit 1
+
+# +++++++++++++++++++++++++++++++++++++++++++++[0m
+Key 'account' ignored: Undefined variables [account] in:  -P '{account}'
+Key 'extra' ignored: Undefined variables [extra] in:  {extra}
+
+Submit job command:
+    [ bsub -cwd /home/carisa/ -R "select[mem>4000] rusage[mem=4000] span[hosts=1]" -J 'sj1.plot_quals.82.' -q 'general' -n '1' -M '4000' -W '120' -oo '/scratch1/fs1/martyomov/carisa/snakemake-tutorial/logs/cluster/plot_quals.log_job.log' -g '/carisa/test-snakemake' -G 'compute-martyomov' -N -u 'carisa@wustl.edu'  -a 'docker(snakemake/snakemake:latest)' '/scratch1/fs1/martyomov/carisa/snakemake-tutorial/.snakemake/tmp.ob_h7sws/snakejob.plot_quals.1.sh']
+[33mSubmitted job 1 with external jobid '177614'.[0m
+[32m[Mon Aug  7 21:24:18 2023][0m
+[32mFinished job 1.[0m
+[32m1 of 2 steps (50%) done[0m
+[34mResources before job selection: {'_cores': 9223372036854775807, '_nodes': 50}[0m
+[34mReady jobs (1)[0m
+[33mSelect jobs to execute...[0m
+[34mUsing greedy selector because only single job has to be scheduled.[0m
+[34mSelected jobs (1)[0m
+[34mResources after job selection: {'_cores': 9223372036854775806, '_nodes': 49}[0m
+[32m[0m
+[32m[Mon Aug  7 21:24:18 2023][0m
+[32mlocalrule all:
+    input: results/plots/quals.svg
+    jobid: 0
+    reason: Input files updated by another job: results/plots/quals.svg
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/scratch1/fs1/martyomov/carisa/snakemake-tutorial/tmp[0m
+[32m[0m
+[32m[Mon Aug  7 21:24:18 2023][0m
+[32mFinished job 0.[0m
+[32m2 of 2 steps (100%) done[0m
+[33mComplete log: .snakemake/log/2023-08-07T211457.472438.snakemake.log[0m
+[34munlocking[0m
+[34mremoving lock[0m
+[34mremoving lock[0m
+[34mremoved all locks[0m
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@compute1-exec-161.ris.wustl.edu>
+Subject: Job 177556: </usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/snakemake-tutorial; export TMPDIR=/scratch1/fs1/martyomov/carisa/snakemake-tutorial/tmp; snakemake -j 50 --profile lsf_demo --local-cores 4"> in cluster <compute1-lsf> Done
+
+Job </usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/snakemake-tutorial; export TMPDIR=/scratch1/fs1/martyomov/carisa/snakemake-tutorial/tmp; snakemake -j 50 --profile lsf_demo --local-cores 4"> was submitted from host <compute1-client-1.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Mon Aug  7 16:14:24 2023
+Job was executed on host(s) <4*compute1-exec-161.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Mon Aug  7 16:14:26 2023
+</home/carisa> was used as the home directory.
+</home/carisa> was used as the working directory.
+Started at Mon Aug  7 16:14:26 2023
+Terminated at Mon Aug  7 16:24:36 2023
+Results reported at Mon Aug  7 16:24:36 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/usr/bin/script -fqe /dev/null -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/snakemake-tutorial; export TMPDIR=/scratch1/fs1/martyomov/carisa/snakemake-tutorial/tmp; snakemake -j 50 --profile lsf_demo --local-cores 4"
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.65 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             8.93 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               4087.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                32
+    Run time :                                   610 sec.
+    Turnaround time :                            612 sec.
+
+The output (if any) is above this job summary.
+

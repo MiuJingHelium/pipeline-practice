@@ -1,0 +1,62 @@
+latest: Pulling from snakemake/snakemake
+5768ab67ba8c: Pulling fs layer
+88cf1f5ea1b7: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+59636baf209f: Pulling fs layer
+037ac19dd17d: Pulling fs layer
+c1088bbaaa43: Pulling fs layer
+ee049ed8901f: Pulling fs layer
+59636baf209f: Waiting
+037ac19dd17d: Waiting
+c1088bbaaa43: Waiting
+ee049ed8901f: Waiting
+4f4fb700ef54: Download complete
+88cf1f5ea1b7: Verifying Checksum
+88cf1f5ea1b7: Download complete
+5768ab67ba8c: Verifying Checksum
+5768ab67ba8c: Download complete
+59636baf209f: Verifying Checksum
+59636baf209f: Download complete
+ee049ed8901f: Download complete
+5768ab67ba8c: Pull complete
+88cf1f5ea1b7: Pull complete
+4f4fb700ef54: Pull complete
+037ac19dd17d: Verifying Checksum
+037ac19dd17d: Download complete
+c1088bbaaa43: Verifying Checksum
+c1088bbaaa43: Download complete
+59636baf209f: Pull complete
+037ac19dd17d: Pull complete
+c1088bbaaa43: Pull complete
+ee049ed8901f: Pull complete
+Digest: sha256:1351b660bc80f7ccc9e2a6d1ab3e2e514f932453b516c550cc449e09723317a3
+Status: Downloaded newer image for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
+Set TMPDIR from $__LSF_JOB_TMPDIR__
+Job uses tempdir: TMPDIR=/tmp/144084.tmpdir
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954
+Select jobs to execute...
+
+[Sun Aug  6 15:54:31 2023]
+rule bcf_call:
+    input: resources/data/genome.fa, results/sorted_reads/A.sorted.bam, results/sorted_reads/B.sorted.bam, results/sorted_reads/C.sorted.bam, results/sorted_reads/A.sorted.bam.bai, results/sorted_reads/B.sorted.bam.bai, results/sorted_reads/C.sorted.bam.bai
+    output: results/calls/all.vcf
+    jobid: 0
+    reason: Missing output files: results/calls/all.vcf
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp/144084.tmpdir
+
+
+        bcftools mpileup -f resources/data/genome.fa results/sorted_reads/A.sorted.bam results/sorted_reads/B.sorted.bam results/sorted_reads/C.sorted.bam | bcftools call -mv - > results/calls/all.vcf
+        
+Activating conda environment: .snakemake/conda/4f20e9f8c0e3fa25a1619c4923e0098b_
+Note: none of --samples-file, --ploidy or --ploidy-file given, assuming all sites are diploid
+[mpileup] 3 samples in 3 input files
+[mpileup] maximum number of reads per input file set to -d 250
+[Sun Aug  6 15:54:32 2023]
+Finished job 0.
+1 of 1 steps (100%) done
