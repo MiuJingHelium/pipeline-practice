@@ -1,4 +1,4 @@
-INFO  @ Thu, 03 Aug 2023 23:13:29: 
+INFO  @ Sun, 06 Aug 2023 04:43:50: 
 # Command line: callpeak -t results/bams_sorted/GSM1102793_CD14_H3K4me1_hg19.sorted.bam --outdir results/macs2 -n GSM1102793_CD14_H3K4me1_hg19 -f BAM -g hs
 # ARGUMENTS LIST:
 # name = GSM1102793_CD14_H3K4me1_hg19
@@ -16,32 +16,32 @@ INFO  @ Thu, 03 Aug 2023 23:13:29:
 # Broad region calling is off
 # Paired-End mode is off
  
-INFO  @ Thu, 03 Aug 2023 23:13:29: #1 read tag files... 
-INFO  @ Thu, 03 Aug 2023 23:13:29: #1 read treatment tags... 
-INFO  @ Thu, 03 Aug 2023 23:13:31:  1000000 
-INFO  @ Thu, 03 Aug 2023 23:13:31: 1214202 reads have been read. 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1 tag size is determined as 36 bps 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1 tag size = 36.0 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1  total tags in treatment: 1214202 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1 user defined the maximum tags... 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1  tags after filtering in treatment: 1118504 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1  Redundant rate of treatment: 0.08 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #1 finished! 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #2 Build Peak Model... 
-INFO  @ Thu, 03 Aug 2023 23:13:31: #2 looking for paired plus/minus strand peaks... 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #2 number of paired peaks: 12185 
-INFO  @ Thu, 03 Aug 2023 23:13:32: start model_add_line... 
-INFO  @ Thu, 03 Aug 2023 23:13:32: start X-correlation... 
-INFO  @ Thu, 03 Aug 2023 23:13:32: end of X-cor 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #2 finished! 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #2 predicted fragment length is 296 bps 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #2 alternative fragment length(s) may be 296 bps 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #2.2 Generate R script for model : results/macs2/GSM1102793_CD14_H3K4me1_hg19_model.r 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #3 Call peaks... 
-INFO  @ Thu, 03 Aug 2023 23:13:32: #3 Pre-compute pvalue-qvalue table... 
-INFO  @ Thu, 03 Aug 2023 23:13:38: #3 Call peaks for each chromosome... 
-INFO  @ Thu, 03 Aug 2023 23:13:40: #4 Write output xls file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.xls 
-INFO  @ Thu, 03 Aug 2023 23:13:40: #4 Write peak in narrowPeak format file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.narrowPeak 
-INFO  @ Thu, 03 Aug 2023 23:13:40: #4 Write summits bed file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_summits.bed 
-INFO  @ Thu, 03 Aug 2023 23:13:40: Done! 
+INFO  @ Sun, 06 Aug 2023 04:43:50: #1 read tag files... 
+INFO  @ Sun, 06 Aug 2023 04:43:50: #1 read treatment tags... 
+INFO  @ Sun, 06 Aug 2023 04:43:51:  1000000 
+INFO  @ Sun, 06 Aug 2023 04:43:52: 1214202 reads have been read. 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1 tag size is determined as 36 bps 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1 tag size = 36.0 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1  total tags in treatment: 1214202 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1 user defined the maximum tags... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1  tags after filtering in treatment: 1118504 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1  Redundant rate of treatment: 0.08 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #1 finished! 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 Build Peak Model... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 looking for paired plus/minus strand peaks... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 number of paired peaks: 12185 
+INFO  @ Sun, 06 Aug 2023 04:43:52: start model_add_line... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: start X-correlation... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: end of X-cor 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 finished! 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 predicted fragment length is 296 bps 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2 alternative fragment length(s) may be 296 bps 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #2.2 Generate R script for model : results/macs2/GSM1102793_CD14_H3K4me1_hg19_model.r 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #3 Call peaks... 
+INFO  @ Sun, 06 Aug 2023 04:43:52: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Sun, 06 Aug 2023 04:43:58: #3 Call peaks for each chromosome... 
+INFO  @ Sun, 06 Aug 2023 04:44:00: #4 Write output xls file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.xls 
+INFO  @ Sun, 06 Aug 2023 04:44:00: #4 Write peak in narrowPeak format file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_peaks.narrowPeak 
+INFO  @ Sun, 06 Aug 2023 04:44:00: #4 Write summits bed file... results/macs2/GSM1102793_CD14_H3K4me1_hg19_summits.bed 
+INFO  @ Sun, 06 Aug 2023 04:44:00: Done! 

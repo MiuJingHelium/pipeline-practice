@@ -1,3 +1,11 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
 819462 reads; of these:
   819462 (100.00%) were unpaired; of these:
     40426 (4.93%) aligned 0 times

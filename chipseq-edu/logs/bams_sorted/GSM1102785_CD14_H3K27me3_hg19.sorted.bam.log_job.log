@@ -1,195 +1,34 @@
-Sender: LSF System <lsfadmin@compute1-exec-125.ris.wustl.edu>
-Subject: Job 94601: <sj14.bam_sort.1906.sample=GSM1102785_CD14_H3K27me3.genome=hg19> in cluster <compute1-lsf> Done
-
-Job <sj14.bam_sort.1906.sample=GSM1102785_CD14_H3K27me3.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:35:59 2023
-Job was executed on host(s) <compute1-exec-125.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:36:01 2023
-</home/carisa> was used as the home directory.
-</home/carisa> was used as the working directory.
-Started at Thu Aug  3 17:36:01 2023
-Terminated at Thu Aug  3 17:37:47 2023
-Results reported at Thu Aug  3 17:37:47 2023
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.bam_sort.14.sh
-------------------------------------------------------------
-
-Successfully completed.
-
-Resource usage summary:
-
-    CPU time :                                   10.49 sec.
-    Max Memory :                                 9 MB
-    Average Memory :                             8.65 MB
-    Total Requested Memory :                     4000.00 MB
-    Delta Memory :                               3991.00 MB
-    Max Swap :                                   -
-    Max Processes :                              5
-    Max Threads :                                22
-    Run time :                                   106 sec.
-    Turnaround time :                            108 sec.
-
-The output (if any) follows:
-
-6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
-852e50cd189d: Pulling fs layer
-a6236801494d: Pulling fs layer
-679c171d6942: Pulling fs layer
-a862f6964260: Pulling fs layer
-a6236801494d: Waiting
-679c171d6942: Waiting
-8f084f4ae85d: Pulling fs layer
-28c366f1dc2e: Pulling fs layer
-a862f6964260: Waiting
-9137c0f3b9db: Pulling fs layer
-8f084f4ae85d: Waiting
-28c366f1dc2e: Waiting
-cd2ed8e3e644: Pulling fs layer
-030448aace82: Pulling fs layer
-9137c0f3b9db: Waiting
-052067605b97: Pulling fs layer
-cd2ed8e3e644: Waiting
-c21e5468129b: Pulling fs layer
-8aad774f5547: Pulling fs layer
-25cad337c868: Pulling fs layer
-774f229b4cb1: Pulling fs layer
-030448aace82: Waiting
-c3b134f9be85: Pulling fs layer
-c21e5468129b: Waiting
-8aad774f5547: Waiting
-25cad337c868: Waiting
-774f229b4cb1: Waiting
-5e734207fbcb: Pulling fs layer
-e84b271bb802: Pulling fs layer
-1286bffe0528: Pulling fs layer
-e2fac4700a3f: Pulling fs layer
-c3b134f9be85: Waiting
-1286bffe0528: Waiting
-5e734207fbcb: Waiting
-478bbed8ac76: Pulling fs layer
-224f7a661e21: Pulling fs layer
-7b92d7f1ac3b: Pulling fs layer
-331f88574e4b: Pulling fs layer
-e2fac4700a3f: Waiting
-7b92d7f1ac3b: Waiting
-224f7a661e21: Waiting
-fb497a18a01a: Pulling fs layer
-0ace49a24c5f: Pulling fs layer
-1fdca6280f5a: Pulling fs layer
-5cb266913c45: Pulling fs layer
-f5363ec7b756: Pulling fs layer
-fb497a18a01a: Waiting
-331f88574e4b: Waiting
-5cb266913c45: Waiting
-0ace49a24c5f: Waiting
-f5363ec7b756: Waiting
-1fdca6280f5a: Waiting
-852e50cd189d: Verifying Checksum
-852e50cd189d: Download complete
-a6236801494d: Verifying Checksum
-852e50cd189d: Pull complete
-679c171d6942: Verifying Checksum
-679c171d6942: Download complete
-a862f6964260: Download complete
-8f084f4ae85d: Verifying Checksum
-8f084f4ae85d: Download complete
-28c366f1dc2e: Download complete
-a6236801494d: Pull complete
-9137c0f3b9db: Verifying Checksum
-9137c0f3b9db: Download complete
-679c171d6942: Pull complete
-030448aace82: Verifying Checksum
-030448aace82: Download complete
-052067605b97: Download complete
-cd2ed8e3e644: Download complete
-a862f6964260: Pull complete
-c21e5468129b: Download complete
-8aad774f5547: Verifying Checksum
-8aad774f5547: Download complete
-25cad337c868: Verifying Checksum
-25cad337c868: Download complete
-8f084f4ae85d: Pull complete
-28c366f1dc2e: Pull complete
-c3b134f9be85: Verifying Checksum
-c3b134f9be85: Download complete
-774f229b4cb1: Verifying Checksum
-774f229b4cb1: Download complete
-9137c0f3b9db: Pull complete
-cd2ed8e3e644: Pull complete
-030448aace82: Pull complete
-052067605b97: Pull complete
-c21e5468129b: Pull complete
-8aad774f5547: Pull complete
-25cad337c868: Pull complete
-774f229b4cb1: Pull complete
-c3b134f9be85: Pull complete
-1286bffe0528: Verifying Checksum
-1286bffe0528: Download complete
-5e734207fbcb: Verifying Checksum
-5e734207fbcb: Download complete
-e84b271bb802: Verifying Checksum
-e84b271bb802: Download complete
-5e734207fbcb: Pull complete
-e2fac4700a3f: Verifying Checksum
-e2fac4700a3f: Download complete
-7b92d7f1ac3b: Verifying Checksum
-7b92d7f1ac3b: Download complete
-478bbed8ac76: Verifying Checksum
-478bbed8ac76: Download complete
-fb497a18a01a: Verifying Checksum
-fb497a18a01a: Download complete
-0ace49a24c5f: Verifying Checksum
-0ace49a24c5f: Download complete
-331f88574e4b: Download complete
-5cb266913c45: Download complete
-f5363ec7b756: Verifying Checksum
-f5363ec7b756: Download complete
-1fdca6280f5a: Download complete
-e84b271bb802: Pull complete
-1286bffe0528: Pull complete
-e2fac4700a3f: Pull complete
-478bbed8ac76: Pull complete
-224f7a661e21: Download complete
-224f7a661e21: Pull complete
-7b92d7f1ac3b: Pull complete
-331f88574e4b: Pull complete
-fb497a18a01a: Pull complete
-0ace49a24c5f: Pull complete
-1fdca6280f5a: Pull complete
-5cb266913c45: Pull complete
-f5363ec7b756: Pull complete
-Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
-Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
-docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
-Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691102159.94601
+latest: Pulling from snakemake/snakemake
+Digest: sha256:1351b660bc80f7ccc9e2a6d1ab3e2e514f932453b516c550cc449e09723317a3
+Status: Image is up to date for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
 Set TMPDIR from $__LSF_JOB_TMPDIR__
-Job uses tempdir: TMPDIR=/tmp/94601.tmpdir
+Job uses tempdir: TMPDIR=/tmp/140565.tmpdir
 Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
 Using shell: /bin/bash
 Provided cores: 32
 Rules claiming more threads will be scaled down.
-Job counts:
-	count	jobs
-	1	bam_sort
-	1
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954
 Select jobs to execute...
 
-[Thu Aug  3 22:37:29 2023]
+[Sun Aug  6 04:43:07 2023]
 rule bam_sort:
     input: results/bams/GSM1102785_CD14_H3K27me3_hg19.bam
     output: results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam, results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bai
     log: logs/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam.log
     jobid: 0
     benchmark: logs/benchmarks/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam.txt
+    reason: Missing output files: results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam, results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bai
     wildcards: sample=GSM1102785_CD14_H3K27me3, genome=hg19
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp/140565.tmpdir
 
-python -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"
-Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a
-python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpyjiv_lxn.wrapper.py
-Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a
-picard SortSam  VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=TRUE INPUT=results/bams/GSM1102785_CD14_H3K27me3_hg19.bam OUTPUT=results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam SORT_ORDER=coordinate  2> logs/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam.log
-[Thu Aug  3 22:37:43 2023]
+python -c "from __future__ import print_function; import sys, json; print(json.dumps([sys.version_info.major, sys.version_info.minor]))"
+Activating conda environment: .snakemake/conda/6341e136b80076549322f24e1a7cc00a
+python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd09dkmp0.wrapper.py
+Activating conda environment: .snakemake/conda/6341e136b80076549322f24e1a7cc00a
+picard SortSam  -Xmx1000M VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=TRUE INPUT=results/bams/GSM1102785_CD14_H3K27me3_hg19.bam OUTPUT=results/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam SORT_ORDER=coordinate  2> logs/bams_sorted/GSM1102785_CD14_H3K27me3_hg19.sorted.bam.log
+Not cleaning up /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpd09dkmp0.wrapper.py
+[Sun Aug  6 04:43:20 2023]
 Finished job 0.
 1 of 1 steps (100%) done

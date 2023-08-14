@@ -1,3 +1,11 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
 Started analysis of SRR787552.chr15.fastq
 Approx 5% complete for SRR787552.chr15.fastq
 Approx 10% complete for SRR787552.chr15.fastq

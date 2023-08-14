@@ -1,0 +1,42 @@
+v7.31.0: Pulling from snakemake/snakemake
+Digest: sha256:78fe79cf6288cfd9c3fbfb0ae15f34bf9ee2ba25307e4a2b3d8df0bcedb14651
+Status: Image is up to date for snakemake/snakemake:v7.31.0
+docker.io/snakemake/snakemake:v7.31.0
+/bin/bash: snakemake: command not found
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@compute1-exec-126.ris.wustl.edu>
+Subject: Job 139662: </bin/bash -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --dry-run"> in cluster <compute1-lsf> Exited
+
+Job </bin/bash -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --dry-run"> was submitted from host <compute1-client-1.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Sat Aug  5 17:47:54 2023
+Job was executed on host(s) <compute1-exec-126.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Sat Aug  5 17:47:55 2023
+</home/carisa> was used as the home directory.
+</scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu> was used as the working directory.
+Started at Sat Aug  5 17:47:55 2023
+Terminated at Sat Aug  5 17:48:14 2023
+Results reported at Sat Aug  5 17:48:14 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/bin/bash -c "source /etc/bash.bashrc; cd /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu; export TMPDIR=/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/tmp; snakemake --profile lsf_demo --dry-run"
+------------------------------------------------------------
+
+Exited with exit code 127.
+
+Resource usage summary:
+
+    CPU time :                                   10.23 sec.
+    Max Memory :                                 9 MB
+    Average Memory :                             7.50 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               4087.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                23
+    Run time :                                   19 sec.
+    Turnaround time :                            20 sec.
+
+The output (if any) is above this job summary.
+

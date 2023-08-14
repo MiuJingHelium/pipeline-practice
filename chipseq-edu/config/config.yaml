@@ -1,0 +1,15 @@
+samples_table: "config/data_table.tsv"
+genome: "hg19"
+
+fastqc:
+  threads: 2
+
+bowtie2_index:
+  threads: 4
+  # optional parameters
+  extra: ""
+
+bowtie2_align:
+  threads: 2
+  # optional parameters
+  extra: ""

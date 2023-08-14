@@ -1,70 +1,65 @@
-Sender: LSF System <lsfadmin@compute1-exec-149.ris.wustl.edu>
-Subject: Job 94585: <sj15.align_reads_se.1660.sample=GSM1102785_CD14_H3K27me3.genome=hg19> in cluster <compute1-lsf> Done
-
-Job <sj15.align_reads_se.1660.sample=GSM1102785_CD14_H3K27me3.genome=hg19> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:35:19 2023
-Job was executed on host(s) <4*compute1-exec-149.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 17:35:21 2023
-</home/carisa> was used as the home directory.
-</home/carisa> was used as the working directory.
-Started at Thu Aug  3 17:35:21 2023
-Terminated at Thu Aug  3 17:35:47 2023
-Results reported at Thu Aug  3 17:35:47 2023
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.align_reads_se.15.sh
-------------------------------------------------------------
-
-Successfully completed.
-
-Resource usage summary:
-
-    CPU time :                                   10.24 sec.
-    Max Memory :                                 9 MB
-    Average Memory :                             7.60 MB
-    Total Requested Memory :                     4000.00 MB
-    Delta Memory :                               3991.00 MB
-    Max Swap :                                   -
-    Max Processes :                              5
-    Max Threads :                                23
-    Run time :                                   26 sec.
-    Turnaround time :                            28 sec.
-
-The output (if any) follows:
-
-6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
-Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
-Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
-docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
-Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691102119.94585
+latest: Pulling from snakemake/snakemake
+5768ab67ba8c: Pulling fs layer
+88cf1f5ea1b7: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+59636baf209f: Pulling fs layer
+037ac19dd17d: Pulling fs layer
+c1088bbaaa43: Pulling fs layer
+ee049ed8901f: Pulling fs layer
+ee049ed8901f: Waiting
+037ac19dd17d: Waiting
+c1088bbaaa43: Waiting
+59636baf209f: Waiting
+4f4fb700ef54: Download complete
+88cf1f5ea1b7: Verifying Checksum
+88cf1f5ea1b7: Download complete
+5768ab67ba8c: Verifying Checksum
+5768ab67ba8c: Download complete
+59636baf209f: Verifying Checksum
+59636baf209f: Download complete
+ee049ed8901f: Download complete
+5768ab67ba8c: Pull complete
+88cf1f5ea1b7: Pull complete
+4f4fb700ef54: Pull complete
+037ac19dd17d: Verifying Checksum
+037ac19dd17d: Download complete
+c1088bbaaa43: Verifying Checksum
+c1088bbaaa43: Download complete
+59636baf209f: Pull complete
+037ac19dd17d: Pull complete
+c1088bbaaa43: Pull complete
+ee049ed8901f: Pull complete
+Digest: sha256:1351b660bc80f7ccc9e2a6d1ab3e2e514f932453b516c550cc449e09723317a3
+Status: Downloaded newer image for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
 Set TMPDIR from $__LSF_JOB_TMPDIR__
-Job uses tempdir: TMPDIR=/tmp/94585.tmpdir
+Job uses tempdir: TMPDIR=/tmp/140556.tmpdir
 Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
 Using shell: /bin/bash
 Provided cores: 32
 Rules claiming more threads will be scaled down.
-Job counts:
-	count	jobs
-	1	align_reads_se
-	1
+Provided resources: mem_mb=8046, mem_mib=7674, disk_mb=8046, disk_mib=7674
 Select jobs to execute...
 
-[Thu Aug  3 22:35:23 2023]
+[Sun Aug  6 04:42:29 2023]
 rule align_reads_se:
     input: reads/SRX252722/SRR787528.chr15.fastq, results/indexes/hg19/hg19.1.bt2, results/indexes/hg19/hg19.2.bt2, results/indexes/hg19/hg19.3.bt2, results/indexes/hg19/hg19.4.bt2, results/indexes/hg19/hg19.rev.1.bt2, results/indexes/hg19/hg19.rev.2.bt2
     output: results/bams/GSM1102785_CD14_H3K27me3_hg19.bam
     log: logs/bams/GSM1102785_CD14_H3K27me3_hg19.bam.log
     jobid: 0
     benchmark: logs/benchmarks/bams/GSM1102785_CD14_H3K27me3_hg19.bam.txt
+    reason: Missing output files: results/bams/GSM1102785_CD14_H3K27me3_hg19.bam
     wildcards: sample=GSM1102785_CD14_H3K27me3, genome=hg19
     threads: 4
+    resources: mem_mb=8046, mem_mib=7674, disk_mb=8046, disk_mib=7674, tmpdir=/tmp/140556.tmpdir
 
-python -c "import sys; print('.'.join(map(str, sys.version_info[:2])))"
-Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
-python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmp9vy7syg1.wrapper.py
-Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
+python -c "from __future__ import print_function; import sys, json; print(json.dumps([sys.version_info.major, sys.version_info.minor]))"
+Activating conda environment: .snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
+python /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpp41iljk9.wrapper.py
+Activating conda environment: .snakemake/conda/94f77c0dfe3f3a14358ceab7b36b463d
 (bowtie2 --threads 4  -x results/indexes/hg19/hg19 -U reads/SRX252722/SRR787528.chr15.fastq | samtools view -Sbh -o results/bams/GSM1102785_CD14_H3K27me3_hg19.bam -)  > logs/bams/GSM1102785_CD14_H3K27me3_hg19.bam.log 2>&1
-[Thu Aug  3 22:35:38 2023]
+Not cleaning up /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpp41iljk9.wrapper.py
+[Sun Aug  6 04:42:44 2023]
 Finished job 0.
 1 of 1 steps (100%) done

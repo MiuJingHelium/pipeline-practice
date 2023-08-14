@@ -1,0 +1,8 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.8.8
+  - cookiecutter=1.7.3
+  - snakemake=6.3.0
+  - pandas=1.2.3

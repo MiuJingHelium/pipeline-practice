@@ -1,4 +1,5 @@
-INFO	2023-08-03 22:36:42	SortSam	
+/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a/bin/picard: line 5: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+INFO	2023-08-06 04:43:12	SortSam	
 
 ********** NOTE: Picard's command line syntax is changing.
 **********
@@ -11,10 +12,10 @@ INFO	2023-08-03 22:36:42	SortSam
 **********
 
 
-22:36:42.602 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a/share/picard-2.22.1-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
-[Thu Aug 03 22:36:42 UTC 2023] SortSam INPUT=results/bams/GSM1102797_CD14_H3K4me3_hg19.bam OUTPUT=results/bams_sorted/GSM1102797_CD14_H3K4me3_hg19.sorted.bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=true    VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
-[Thu Aug 03 22:36:42 UTC 2023] Executing as carisa@compute1-exec-138.ris.wustl.edu on Linux 3.10.0-1160.53.1.el7.x86_64 amd64; OpenJDK 64-Bit Server VM 20-internal-adhoc..src; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.22.1
-INFO	2023-08-03 22:36:42	SortSam	Seen many non-increasing record positions. Printing Read-names as well.
-INFO	2023-08-03 22:36:45	SortSam	Finished reading inputs, merging and writing to output now.
-[Thu Aug 03 22:36:50 UTC 2023] picard.sam.SortSam done. Elapsed time: 0.13 minutes.
-Runtime.totalMemory()=536870912
+04:43:12.663 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/6341e136b80076549322f24e1a7cc00a/share/picard-2.22.1-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Aug 06 04:43:12 UTC 2023] SortSam INPUT=results/bams/GSM1102797_CD14_H3K4me3_hg19.bam OUTPUT=results/bams_sorted/GSM1102797_CD14_H3K4me3_hg19.sorted.bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=true    VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Sun Aug 06 04:43:12 UTC 2023] Executing as carisa@compute1-exec-186.ris.wustl.edu on Linux 3.10.0-1160.53.1.el7.x86_64 amd64; OpenJDK 64-Bit Server VM 20-internal-adhoc..src; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.22.1
+INFO	2023-08-06 04:43:12	SortSam	Seen many non-increasing record positions. Printing Read-names as well.
+INFO	2023-08-06 04:43:15	SortSam	Finished reading inputs, merging and writing to output now.
+[Sun Aug 06 04:43:20 UTC 2023] picard.sam.SortSam done. Elapsed time: 0.12 minutes.
+Runtime.totalMemory()=46137344

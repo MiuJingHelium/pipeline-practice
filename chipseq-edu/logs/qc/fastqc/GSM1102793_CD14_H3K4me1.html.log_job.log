@@ -1,71 +1,64 @@
-6.4.1_conda4.10.1_py38: Pulling from biolabs/snakemake
-Digest: sha256:4a116138b9e4dee13601f82e5f9fe30557c648a466624fa8dd0400f39a74c8aa
-Status: Image is up to date for biolabs/snakemake:6.4.1_conda4.10.1_py38
-docker.io/biolabs/snakemake:6.4.1_conda4.10.1_py38
-Cmdline: cmd_wrapper.sh /home/carisa/.lsbatch/1691099750.93955
+latest: Pulling from snakemake/snakemake
+5768ab67ba8c: Pulling fs layer
+88cf1f5ea1b7: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+59636baf209f: Pulling fs layer
+037ac19dd17d: Pulling fs layer
+c1088bbaaa43: Pulling fs layer
+ee049ed8901f: Pulling fs layer
+ee049ed8901f: Waiting
+59636baf209f: Waiting
+037ac19dd17d: Waiting
+c1088bbaaa43: Waiting
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+88cf1f5ea1b7: Verifying Checksum
+88cf1f5ea1b7: Download complete
+5768ab67ba8c: Download complete
+59636baf209f: Verifying Checksum
+59636baf209f: Download complete
+ee049ed8901f: Download complete
+5768ab67ba8c: Pull complete
+88cf1f5ea1b7: Pull complete
+4f4fb700ef54: Pull complete
+037ac19dd17d: Verifying Checksum
+037ac19dd17d: Download complete
+c1088bbaaa43: Verifying Checksum
+c1088bbaaa43: Download complete
+59636baf209f: Pull complete
+037ac19dd17d: Pull complete
+c1088bbaaa43: Pull complete
+ee049ed8901f: Pull complete
+Digest: sha256:1351b660bc80f7ccc9e2a6d1ab3e2e514f932453b516c550cc449e09723317a3
+Status: Downloaded newer image for snakemake/snakemake:latest
+docker.io/snakemake/snakemake:latest
 Set TMPDIR from $__LSF_JOB_TMPDIR__
-Job uses tempdir: TMPDIR=/tmp/93955.tmpdir
+Job uses tempdir: TMPDIR=/tmp/139701.tmpdir
 Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
 Using shell: /bin/bash
 Provided cores: 32
 Rules claiming more threads will be scaled down.
-Job counts:
-	count	jobs
-	1	reads_fastqc
-	1
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954
 Select jobs to execute...
 
-[Thu Aug  3 21:55:55 2023]
+[Sat Aug  5 23:01:19 2023]
 rule reads_fastqc:
     input: reads/SRX252730/SRR787524.chr15.fastq
     output: results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip
     log: logs/qc/fastqc/GSM1102793_CD14_H3K4me1.html.log
     jobid: 0
+    reason: Missing output files: results/qc/fastqc/GSM1102793_CD14_H3K4me1.html, results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip
     wildcards: sample=GSM1102793_CD14_H3K4me1
     threads: 2
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp/139701.tmpdir
 
-/opt/conda/bin/python3.8 /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpkv119xr3.wrapper.py
-Activating conda environment: /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/conda/978900a19b5ceff48a633694e8144556
-fastqc  -t 2 --outdir /tmp/93955.tmpdir/tmpt5a5ydla reads/SRX252730/SRR787524.chr15.fastq  > logs/qc/fastqc/GSM1102793_CD14_H3K4me1.html.log 2>&1
-mv /tmp/93955.tmpdir/tmpt5a5ydla/SRR787524.chr15_fastqc.html results/qc/fastqc/GSM1102793_CD14_H3K4me1.html
-mv /tmp/93955.tmpdir/tmpt5a5ydla/SRR787524.chr15_fastqc.zip results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip
-[Thu Aug  3 21:56:00 2023]
+/opt/conda/envs/snakemake/bin/python3.11 /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpba9hx8au.wrapper.py
+Activating conda environment: .snakemake/conda/978900a19b5ceff48a633694e8144556
+fastqc  -t 2 --outdir /tmp/139701.tmpdir/tmpppoutqrl reads/SRX252730/SRR787524.chr15.fastq  > logs/qc/fastqc/GSM1102793_CD14_H3K4me1.html.log 2>&1
+mv /tmp/139701.tmpdir/tmpppoutqrl/SRR787524.chr15_fastqc.html results/qc/fastqc/GSM1102793_CD14_H3K4me1.html
+mv /tmp/139701.tmpdir/tmpppoutqrl/SRR787524.chr15_fastqc.zip results/qc/fastqc/GSM1102793_CD14_H3K4me1_fastqc.zip
+Not cleaning up /scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/scripts/tmpba9hx8au.wrapper.py
+[Sat Aug  5 23:01:24 2023]
 Finished job 0.
 1 of 1 steps (100%) done
-
-------------------------------------------------------------
-Sender: LSF System <lsfadmin@compute1-exec-102.ris.wustl.edu>
-Subject: Job 93955: <sj5.reads_fastqc.152.sample=GSM1102793_CD14_H3K4me1> in cluster <compute1-lsf> Done
-
-Job <sj5.reads_fastqc.152.sample=GSM1102793_CD14_H3K4me1> was submitted from host <compute1-exec-68.ris.wustl.edu> by user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:50 2023
-Job was executed on host(s) <2*compute1-exec-102.ris.wustl.edu>, in queue <general>, as user <carisa> in cluster <compute1-lsf> at Thu Aug  3 16:55:53 2023
-</home/carisa> was used as the home directory.
-</home/carisa> was used as the working directory.
-Started at Thu Aug  3 16:55:53 2023
-Terminated at Thu Aug  3 16:56:12 2023
-Results reported at Thu Aug  3 16:56:12 2023
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-/scratch1/fs1/martyomov/carisa/chipseq-smk-pipeline-edu/.snakemake/tmp.tvvzq05b/snakejob.reads_fastqc.5.sh
-------------------------------------------------------------
-
-Successfully completed.
-
-Resource usage summary:
-
-    CPU time :                                   10.24 sec.
-    Max Memory :                                 9 MB
-    Average Memory :                             7.50 MB
-    Total Requested Memory :                     4000.00 MB
-    Delta Memory :                               3991.00 MB
-    Max Swap :                                   -
-    Max Processes :                              5
-    Max Threads :                                26
-    Run time :                                   19 sec.
-    Turnaround time :                            22 sec.
-
-The output (if any) is above this job summary.
-
