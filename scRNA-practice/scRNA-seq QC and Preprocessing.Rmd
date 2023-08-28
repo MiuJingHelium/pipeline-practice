@@ -1,0 +1,250 @@
+---
+title: "scRNA-seq QC and Preprocessing"
+output: html_document
+date: "2023-08-14"
+---
+
+### Intro:
+There are currently three tools on the pipeline for QC and preprocessing. Based on the input and output, the workflow for using all three tools would be SoupX -> Seurat -> Harmony.
+
+### Load data for SoupX:
+
+```{r,eval=FALSE}
+install.packages("SoupX")
+
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DropletUtils")
+```
+
+```{r}
+library(SoupX)
+library(Matrix)
+library(data.table)
+library(DropletUtils)
+```
+
+```{r}
+outdir = "../SoupX_outs/"
+indir = "./outs/"
+```
+
+```{r}
+samples = list.files(path = indir)
+```
+
+```{r}
+outs <- list()
+```
+
+### Apply SoupX:
+
+```{r}
+ctr = 1
+for (sample in samples) {
+  ## load sample data
+  toc <- Seurat::Read10X(paste(indir, sample, "/filtered_feature_bc_matrix", sep = ""))
+  tod <- Seurat::Read10X(paste(indir, sample, "/raw_feature_bc_matrix", sep = ""))
+  meta <- fread(paste(indir, sample, "/analysis/clustering/graphclust/clusters.csv", sep = ""))
+  #because clustering was not performed by cellranger for these two samples,cluter info are loaded from Seurat runs;In this case, need to make sure the data is unfiltered.
+  #meta <- read.table(file = paste0("./analysis/",sample,"/data_for_plot.tsv"),sep = "\t",header = T)
+  clusters <- meta$Cluster
+  names(clusters) <- meta$Barcode
+  
+  ## run soupx
+  sc <- SoupChannel(tod, toc, calcSoupProfile = FALSE)
+  sc <- setClusters(sc, clusters)
+  sc <- estimateSoup(sc)
+  sc <- autoEstCont(sc)
+  out <- adjustCounts(sc)
+  outs[[ctr]] <- out
+  ctr = ctr + 1
+  ## save result
+  #DropletUtils:::write10xCounts(paste(outdir, sample, sep = ""), out)
+}
+```
+### Loading SoupX outputs into Seurat
+
+Or the QC and preprocessing can be proceeded directly using Seurat:
+
+```{r}
+library(Seurat)
+ALAW_3 = CreateSeuratObject(outs[[1]])#This will load one sample;for multiple sample, a loop can be used (or better alternatives); If processed interactively, sample name may be recommended for naming the Seurat Object.
+ALAW_4 = CreateSeuratObject(outs[[2]])
+```
+
+The QC and preprocessing in Seurat mainly concerns two aspects: removing cells with overly high mitochondrial RNA contents and low feature counts (low number of detected genes). The thresholds can be context dependent and in some cases cells with high mitochondrial RNA contents may be desired. 
+
+You can either merge or not merge the datasets. Even if you merge them, you can still access the individual matrix using indexing with orig.ident
+
+```{r}
+whole <- merge(x = ALAW_3, y = ALAW_4, add.cell.ids=c("ALAW_3","ALAW_4"))#Ideally, the orig.ident should be also defined using the sample name.
+```
+
+Cleaning up the environment a little bit:
+```{r}
+rm(outs)
+rm(out)
+rm(meta)
+rm(toc)
+rm(tod)
+```
+
+Removing singular Seurat object:
+```{r}
+rm(ALAW_3)
+rm(ALAW_4)
+```
+
+```{r}
+gc()
+```
+
+Back to QC and preprocessing, note that mitochondrial gene naming may depend on the organism. For human and mice, the genes have a "MT" or "mt" prefix that can be looked up using "^MT-|^mt-" pattern and the `grep()` function.
+
+```{r}
+mito.genes <- c(grep("^MT-|^mt-", rownames(x = whole), value = T))
+```
+
+The goal is to first calculate the mitochondrial RNA percentage by dividing the number of counts from mitochondrial RNA by the total number of RNA counts **per cell**. Because each cell is presented in a column, the calculation is concerned with `colSums(x=...)` and correct indexing of the sub-matrix.In order to get the subset of count matrix using `GetAssayData(object=NameSeuratObject, slot = 'counts')`, then  we need to index for the rows that correspond to mitochondrial genes using `[mito.genes,]`. As for the calculation, we want to divide the column sums of the subset over the column sums of the whole matrix, therefore the code is:
+
+```{r}
+percent.mito <- Matrix::colSums(x = GetAssayData(object = whole, slot = 'counts')[mito.genes, ]) / Matrix::colSums(x = GetAssayData(object = whole, slot = 'counts'))
+```
+
+Then we can store the values into the Seurat object as a new feature:
+
+```{r}
+whole[['percent.mito']] <- percent.mito
+```
+
+We can access the values using `whole$percent.mito`, other features include `orig.ident`,`nCount_RNA`, and `nFeature_RNA`. Alternatively, the values can be also stored as `whole@meta.data$percent.mito <- percent.mito`
+```{r}
+head(whole$nCount_RNA)
+```
+
+```{r}
+head(whole$nFeature_RNA)
+```
+
+Because the threshold may be determined specifically to samples and projects, it would be better to visualize the distribution.Technically, the threshold can be also automatically determined via statistical modeling example see [scn-pipeline/workflow/scripts](https://github.com/ctlab/scn-pipeline/blob/main/workflow/scripts/seurat_analysis.R)
+
+To visualize the distribution (and split by cell.ids/orig.ident), we need to first calculate the distribution. Note that the percentage mito and orig.ident are stored separately inside `whole@meta.data`. There are several options:
+1) Use the tidyverse package, select the percentage mito values, create the corresponding groups, make any conversion if needed, and extract the distribution information.
+2) 
+
+```{r}
+library(tidyverse)
+```
+
+What if you realized that orig.ident is unset? Don't worry! We can extract the substring from the cell names. The sample name is added to the cell id as a prefix.We can do
+
+```{r}
+whole@meta.data$orig.ident = substring(names(whole@active.ident),1,6)
+
+whole@meta.data$orig.ident[1:5]
+```
+
+#### Checking distributions
+
+```{r}
+ggplot(whole@meta.data)+
+  geom_histogram(aes(x=percent.mito,y = after_stat(width*density*100)),bins = 100)+
+  facet_wrap(vars(orig.ident),ncol=2)+
+  geom_vline(xintercept = 0.1,col="red") +
+  ylab("proportion")+
+  xlab("percentage of mitochondrial RNA")
+```
+
+
+```{r}
+ggplot(whole@meta.data)+
+  geom_histogram(aes(x = log2(nFeature_RNA),y = after_stat(width*density*100)),bins = 100)+
+  facet_wrap(vars(orig.ident),ncol=2)+
+  geom_vline(xintercept = 8.5,col="red") +
+  ylab("proportion")+
+  xlab("number of features")
+```
+
+If the data quality does not look good and the html report from alignment does not raise warnings, there might be something wrong. Alignment to wrong reference genome may be reflected in low gene count.
+
+```{r}
+VlnPlot(whole, features = c( "percent.mito"), pt.size = 0.1) + xlab("")
+whole@meta.data$nCount_RNA_log <- log2(whole@meta.data$nCount_RNA)
+VlnPlot(whole, features = c("nCount_RNA_log"), pt.size = 0.1) + xlab("")
+whole@meta.data$nFeature_RNA_log <- log2(whole@meta.data$nFeature_RNA)
+VlnPlot(whole, features = c("nFeature_RNA_log"), pt.size = 0.1) + xlab("") + geom_hline(yintercept = 9)
+plot1 <- FeatureScatter(whole, feature1 = "nCount_RNA", feature2 = "percent.mito", pt.size = 0.1)
+plot2 <- FeatureScatter(whole, feature1 = "nCount_RNA", feature2 = "nFeature_RNA", pt.size = 0.1)
+plot1 + plot2
+```
+#### Applying QC:
+
+```{r}
+cells.after <- length(colnames(x = whole))
+print(cells.after)
+
+whole <- subset(x = whole, subset = percent.mito < 0.1 & nFeature_RNA_log > 8.5)
+
+## how many cells are left
+cells.after <- length(colnames(x = whole))
+print(cells.after)
+```
+
+
+#### Move on with normalization and feature selection:
+
+Prior to applying harmony, normalization and feature selection are needed.These two steps involve choices of statistical methods. Ideally, the decision should be made based on the ssample conditions and the biological question. For normalization, `SCTrransform` [paper link](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1)is designed to deal with cell-specific and gene-specific factors as well as read-depth differences. There are also other methods: [some normalization methods](https://www.10xgenomics.com/resources/analysis-guides/single-cell-rna-seq-data-normalization). Bad normalization practice may erase biological signal.
+
+If `SCTransform` is used ([documentation](https://satijalab.org/seurat/articles/sctransform_vignette.html)):
+```{r}
+whole <- SCTransform(whole, vars.to.regress = "percent.mito", verbose = FALSE)
+```
+
+Then, feature selection also involves several options,vst,mvp,and disp [link](https://satijalab.org/seurat/reference/findvariablefeatures):
+
+```{r}
+whole <- FindVariableFeatures(object = whole, selection.method = 'vst', mean.cutoff = c(0.0125, 3), dispersion.cutoff = c(0.5, Inf))
+```
+
+```{r}
+whole@assays$RNA@var.features <- whole@assays$RNA@var.features[!grepl("^TRA|^TRB|^IGH|^IGK|MAMU-A", whole@assays$RNA@var.features)]
+whole <- ScaleData(object = whole, features = VariableFeatures(object = whole), vars.to.regress = c("nCount_RNA", "percent.mito"))
+
+whole <- RunPCA(object = whole, verbose=FALSE)
+```
+
+### Harmony
+
+```{r,eval=F,warning=F,message=FALSE}
+BiocManager::install("harmony")
+```
+
+```{r}
+library("harmony")
+```
+
+```{r}
+whole@meta.data$Subject <- gsub("_.*", "", whole@meta.data$orig.ident)#create the subject info for the samples (whether they are from the same subject or not)
+whole <- RunHarmony(whole, "Subject")#Run harmony based on the subject
+```
+
+
+#### perform clustering
+
+```{r}
+whole <- whole %>% 
+    RunUMAP(reduction = "harmony", dims = 1:20) %>% 
+    FindNeighbors(reduction = "harmony", dims = 1:20) %>% 
+    FindClusters(resolution = 0.5) %>% 
+    identity()
+save(whole, file = paste(outdir, "whole_object.Robj", sep = ""))
+
+## identify markers
+whole.markers <- FindAllMarkers(object = whole,
+                                only.pos = TRUE,
+                                min.pct = 0.15,
+                                thresh.use = 0.15)
+write.table(whole.markers, paste(outdir, "markers.tsv", sep = ""), sep="\t", quote=F, row.names=F)
+```
