@@ -19,9 +19,9 @@ print(args)
 #samples_dir = list.files(path = indir, full.names = T)
 
 #############list directories for SoupX ##############
-toc <- Seurat::Read10X(paste(indir,"/", sample, "/filtered_feature_bc_matrix", sep = ""))
-tod <- Seurat::Read10X(paste(indir,"/", sample, "/raw_feature_bc_matrix", sep = ""))
-meta <- fread(paste(indir, "/",sample, "/analysis/clustering/graphclust/clusters.csv", sep = ""))
+toc <- Seurat::Read10X(paste(indir,"/", sample, "/outs/filtered_feature_bc_matrix", sep = ""))
+tod <- Seurat::Read10X(paste(indir,"/", sample, "/outs/raw_feature_bc_matrix", sep = ""))
+meta <- fread(paste(indir, "/",sample, "/outs/analysis/clustering/graphclust/clusters.csv", sep = ""))
 
 #prep clusterinfo
 clusters <- meta$Cluster
