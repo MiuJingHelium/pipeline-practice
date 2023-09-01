@@ -1,0 +1,242 @@
+---
+title: "Visualization Codes: Discontinued Drug Dataset"
+author: "Carisa Zeng"
+date: '2022-07-15'
+output: html_document
+---
+
+Read spreadsheet
+
+```{r}
+ds = readxl::read_excel("./Discontinued Drug Database with GKB.xlsx",sheet = "compounds")
+```
+
+Make individual vectors for analysis. Vectors include phase, targets, company, indication, year of discontinuation and indication type. The following plots are mainly descriptive.
+
+```{r}
+phase = ds$Phase...12
+phase_table = data.frame(table(phase))
+```
+
+```{r}
+
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+library(forcats)
+library(scales)
+library(treemapify)
+```
+
+Changes were made the the phase entries. The highest phases are referred to the highest phase recorded in publicaly available sources.
+
+```{r}
+phases = phase_table$phase
+table_labels <- phase_table %>%
+  mutate(phases = factor(phases, 
+                       levels = phases[length(phases):1]),
+         cumulative = cumsum(phase_table$Freq),
+         midpoint = cumulative - phase_table$Freq / 2,
+         labels = paste0(round((phase_table$Freq/ sum(phase_table$Freq)) * 100, 1), "%", " (", phase_table$Freq, ") "))
+
+
+ggplot(table_labels, aes(x = "", y = Freq, fill = phases)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar(theta = "y", start = 0) +
+  scale_fill_brewer(palette="Set2") +
+  labs(x = "", y = "", title = "Highest Phase of Discontinued Drugs",
+       fill = "Phase") + 
+  geom_text(aes(x = 1.2, y = midpoint , label = labels), color="black",
+            fontface = "bold") +
+  theme(plot.title = element_text(hjust = 0.5,face = "bold",size = 16), 
+        legend.title = element_text(hjust = 0.5, face="bold", size = 10),axis.ticks = element_blank(),)  
+
+```
+
+```{r}
+ggsave("./Highest Phase.eps",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+ggsave("./Highest Phase.png",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+```
+
+```{r company}
+company <- ds$Company...2
+company_table = data.frame(table(company))
+
+```
+
+```{r}
+
+bp<- ggplot(company_table, aes(x=reorder(company,Freq), y=Freq))+
+            geom_bar(fill = rgb(0.6,0.1,0.1), stat = "identity",show.legend = F) +
+            coord_flip()+
+            labs(title = "Discontinued Drugs by Company", x = "Company Name", y = "Frequency")+
+            theme(plot.title = element_text(hjust = 0.5,face = "bold",size = 16),
+                  axis.title = element_text(hjust = 0.5, face="bold", size = 10))
+bp
+
+```
+```{r}
+ggsave("./Discontinued Drugs By Company.jpeg",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+ggsave("./Discontinued Drugs By Company.eps",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+```
+
+
+```{r}
+ind <- ds$Indication
+#need to split the indications
+ind_new = unlist(strsplit(ind,"/")) #construct a list of indications based bt splitting indications in `ind`
+ind_table = data.frame(table(ind_new))#construct a frequency table for ind_new
+
+#add heart failure
+ind_new = data.frame(ind_new)
+hf = sapply(ind_new, function(x) {
+  sapply("Heart Failure", function(y) {
+    sum(grepl(y, x))
+  })
+})
+ind_table[ind_table$ind_new == "Heart Failure",2] = unname(hf)
+
+#Do the same for Hypertension
+hp = sapply(ind_new, function(x) {
+  sapply("Hypertension", function(y) {
+    sum(grepl(y, x))
+  })
+})
+ind_table[ind_table$ind_new == "Hypertension",2] = unname(hp)
+#repeat for Coronary Heart Disease
+ch = sapply(ind_new, function(x) {
+  sapply("Coronary", function(y) {
+    sum(grepl(y, x))
+  })
+})
+ind_table[ind_table$ind_new == "Coronary Heart Disease",2] = unname(ch)
+
+kid = sapply(ind_new, function(x) {
+  sapply("Renal", function(y) {
+    sum(grepl(y, x))
+  })
+})
+kid = unname(kid) + sapply(ind_new, function(x) {
+  sapply("Kidney", function(y) {
+    sum(grepl(y, x))
+  })
+})
+
+
+ind_table = ind_table %>% add_row(ind_new = "Renal", Freq = unname(kid))
+
+#ind_table[nrow(ind_table)+1,] = c("Renal",unname(kid))
+liv = sapply(ind_new, function(x) {
+  sapply("Hepatic", function(y) {
+    sum(grepl(y, x))
+  })
+})
+
+ind_table = ind_table %>% add_row(ind_new = "Hepatic", Freq = unname(liv))
+#ind_table[nrow(ind_table)+1,] = c("Hepatic",unname(liv))
+
+#Combine obesity and overweight and remove the individual entries.
+ob_overweight = sapply(ind_new, function(x) {
+  sapply("Obesity", function(y) {
+    sum(grepl(y, x))
+  })
+})
+ob_overweight = ob_overweight + sapply(ind_new, function(x) {
+  sapply("Overweight", function(y) {
+    sum(grepl(y, x))
+  })
+})
+ind_table = ind_table %>% add_row(ind_new = "Obesity and Overweight", Freq = unname(ob_overweight))
+#remove Obesity and Overweight rows
+ind_table = ind_table[ind_table$ind_new != "Obesity",]
+ind_table = ind_table[ind_table$ind_new != "Overweight",]
+
+indSort = ind_table[order(ind_table$Freq,decreasing = TRUE),]
+indSort = indSort[1:30,]
+
+
+```
+
+```{r indications}
+
+
+bp2<- ggplot(indSort, aes(x=reorder(ind_new,Freq), y=Freq))+
+            geom_bar(fill = rgb(0.6,0.1,0.1), stat = "identity") +
+            coord_flip()+
+            labs(title = "Barplot of Top 30 Indications", x = "Indication", y = "Frequency")+
+            theme(plot.title = element_text(hjust = 0.5,face = "bold",size = 16),
+                  axis.title = element_text(hjust = 0.5, face="bold", size = 10),
+                  axis.text.y = element_text(face="bold", 
+                           size=6))
+            
+bp2
+
+```
+
+```{r}
+ggsave("./Top 30 indications.jpeg",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+ggsave("./Top 30 indications.eps",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+```
+
+```{r}
+target <- ds$`Gene Target`
+
+target = target[!target=="NA"]
+target_table = data.frame(table(target))
+tarSort = target_table[order(target_table$Freq,decreasing = TRUE),]
+tarSort = tarSort[1:20,]
+
+
+```
+
+```{r}
+bp3<- ggplot(tarSort, aes(x=reorder(target, Freq), y= Freq))+
+            geom_bar(fill = rgb(0.6,0.1,0.1),stat = "identity") +
+            coord_flip()+
+            labs(title = "Barplot of Top 20 Targets", x = "Target", y = "Frequency")+
+            theme(plot.title = element_text(hjust = 0.5,face = "bold",size = 16),
+                  axis.title = element_text(hjust = 0.5, face="bold", size = 12),
+                  axis.text.y = element_text(face="bold", size=10))
+            
+bp3 
+
+
+```
+
+```{r}
+ggsave("./Top 20 Targets.eps",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+ggsave("./Top 20 Targets.jpeg",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+```
+
+```{r}
+
+indType <- as.data.frame(table(ds$`Indication type`))
+colnames(indType) = c("Indication.Type","Frequency")
+
+
+```
+
+```{r}
+library(randomcoloR)
+```
+
+
+```{r}
+
+n = 5
+palette <- distinctColorPalette(n)
+ggplot(indType, aes(area = Frequency, fill = Indication.Type, label = paste0(Indication.Type,"\n", Frequency))) +
+  geom_treemap() +
+  geom_treemap_text(colour = "white",
+                    place = "centre",
+                    size = 15)+
+  labs(title="Treemap of Indication Types")+
+  theme(plot.title = element_text(hjust = 0.5,face = "bold",size = 16),
+                    legend.position = "none")
+
+```
+
+```{r}
+ggsave("./Indication Types.eps",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+ggsave("./Indication Types.jpeg",plot = last_plot(),units = "mm",height = 88,dpi = 300)
+```
