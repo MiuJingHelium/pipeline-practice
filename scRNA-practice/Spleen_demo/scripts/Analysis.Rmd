@@ -1,0 +1,577 @@
+---
+title: "Analysis_manualQC"
+output: html_document
+date: "2023-09-07"
+---
+
+## Preparation
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+```
+
+```{r}
+indir = "../outs/"
+outdir="./"
+samples = list.files(path=indir,full.names = F)
+n = length(samples)
+#objs = list(n)
+for (i in (1:n)){
+  load(paste0(indir,samples[i],"/",samples[i],"_filtered.Robj"))
+  #objs[[i]] = assign(samples[i],obj_filtered)#assume using the same set of script
+  assign(samples[i],obj_filtered)
+}
+rm(obj_filtered)
+gc()
+```
+
+
+
+```{r}
+#need to learn how to perform apply
+```
+
+```{r}
+#to avoid using objs
+whole = merge(eval(as.symbol(samples[1])),y=list(eval(as.symbol(samples[2]))),add.cell.ids = samples)
+```
+
+```{r}
+rm(Spleen_Aged)
+rm(Spleen_Young)
+```
+
+```{r}
+gc()
+```
+
+
+```{r}
+#whole = merge(x=objs[[1]],y=objs[2:n],add.cell.ids = samples)
+```
+
+## Analysis
+
+
+```{r}
+aged_range = range(grep("Aged",rownames(whole@meta.data)))
+young_range = range(grep("Young",rownames(whole@meta.data)))
+whole@meta.data$orig.ident[aged_range[1]:aged_range[2]] = "Aged"
+whole@meta.data$orig.ident[young_range[1]:young_range[2]] = "Young"
+```
+
+```{r}
+ggplot(whole@meta.data)+
+  geom_histogram(aes(x=percent.mt,y = after_stat(width*density*100)),bins = 100)+
+  facet_wrap(vars(orig.ident),ncol=1)+
+  geom_vline(xintercept = 5,col="red") +
+  ylab("proportion")+
+  xlab("percentage of mitochondrial RNA")
+```
+
+
+```{r}
+ggplot(whole@meta.data, aes(x = log2(nFeature_RNA))) +
+  geom_histogram(bins = 100, aes(y = after_stat(width*density*100))) +
+  theme_classic() +
+  facet_wrap(~orig.ident, ncol = 1) +
+  geom_vline(xintercept = 8.5,col="red") + 
+  geom_vline(xintercept = 10.5,col="red") + 
+  ggtitle("nGene") +
+  ylab("")
+```
+
+```{r}
+
+cells <- length(colnames(x = whole))
+print(cells)
+
+```
+
+```{r}
+#I'll perform an arbituary trimming of nfeature log2 = 12
+```
+
+```{r}
+whole = subset(whole, subset = nFeature_RNA_log2 <= 12)
+cells <- length(colnames(x = whole))
+print(cells)
+```
+
+```{r}
+ggplot(whole@meta.data, aes(x = log2(nFeature_RNA))) +
+  geom_histogram(bins = 100, aes(y = after_stat(width*density*100))) +
+  theme_classic() +
+  facet_wrap(~orig.ident, ncol = 1) +
+  geom_vline(xintercept = 8.5,col="red") + 
+  geom_vline(xintercept = 12,col="red") + 
+  ggtitle("nGene") +
+  ylab("")
+```
+
+```{r}
+#Need to check for additional dublets
+Cd19_Cd3 = subset(whole,subset = Cd19 > 0 & Cd3d > 0)
+```
+
+```{r}
+length(colnames(x=Cd19_Cd3))
+```
+
+
+```{r}
+ggplot(Cd19_Cd3@meta.data, aes(x = log2(nFeature_RNA))) +
+  geom_histogram(bins = 100, aes(y = after_stat(width*density*100))) +
+  theme_classic() +
+  facet_wrap(~orig.ident, ncol = 1) +
+  geom_vline(xintercept = 8.5,col="red") + 
+  geom_vline(xintercept = 10.5,col="red") + 
+  ggtitle("nGene") +
+  ylab("")
+```
+
+```{r}
+cell = colnames(whole)[!(colnames(whole) %in% colnames(Cd19_Cd3))]
+```
+
+```{r}
+whole[["CellName"]] <- colnames(whole)
+```
+
+
+```{r}
+
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+Continue removing cells that co-express signature genes of different cell types
+
+```{r}
+#Ncr1 and Cd19
+sum(whole[["RNA"]]@counts["Ncr1",]>0 & whole[["RNA"]]@counts["Cd19",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Ncr1",]>0 & whole[["RNA"]]@counts["Cd19",]>0)]
+length(cell)
+```
+
+```{r}
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+#remove platelets
+sum(whole[["RNA"]]@counts["Ppbp",]>0 | whole[["RNA"]]@counts["Pf4",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Ppbp",]>0 | whole[["RNA"]]@counts["Pf4",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+#filter Cd4+ Cd8+
+sum(whole[["RNA"]]@counts["Cd4",]>0 & whole[["RNA"]]@counts["Cd8a",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd4",]>0 & whole[["RNA"]]@counts["Cd8a",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+#filter Siglech+ Cd19+ cells
+sum(whole[["RNA"]]@counts["Siglech",]>0 & whole[["RNA"]]@counts["Cd19",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["Siglech",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+#filter Siglech+ Cd19+ cells
+sum(whole[["RNA"]]@counts["Siglech",]>0 & whole[["RNA"]]@counts["Cd3d",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["Siglech",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+
+```{r}
+sum(whole[["RNA"]]@counts["Cd4",]>0 & whole[["RNA"]]@counts["S100a8",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd4",]>0 & whole[["RNA"]]@counts["S100a8",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+sum(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["S100a8",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["S100a8",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+
+```{r}
+sum(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["Lyz2",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["Lyz2",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+
+```{r}
+
+sum(whole[["RNA"]]@counts["Xcr1",]>0 & whole[["RNA"]]@counts["Cd19",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Cd19",]>0 & whole[["RNA"]]@counts["Xcr1",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+```{r}
+sum(whole[["RNA"]]@counts["Xcr1",]>0 & whole[["RNA"]]@counts["Cd3d",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Xcr1",]>0 & whole[["RNA"]]@counts["Cd3d",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+
+```{r}
+ggplot(whole@meta.data, aes(x = log2(nFeature_RNA))) +
+  geom_histogram(bins = 100, aes(y = after_stat(width*density*100))) +
+  theme_classic() +
+  facet_wrap(~orig.ident, ncol = 1) +
+  geom_vline(xintercept = 8.5,col="red") + 
+  geom_vline(xintercept = 12,col="red") + 
+  ggtitle("nGene") +
+  ylab("")
+```
+```{r}
+ggplot(whole@meta.data, aes(x = log2(nCount_RNA))) +
+  geom_histogram(bins = 100, aes(y = after_stat(width*density*100))) +
+  theme_classic() +
+  facet_wrap(~orig.ident, ncol = 1) +
+  geom_vline(xintercept = 9,col="red") + 
+  geom_vline(xintercept = 15,col="red") + 
+  ggtitle("nUMI") +
+  ylab("")
+```
+
+```{r}
+whole@meta.data$log2nUMI = log2(whole@meta.data$nCount_RNA)
+whole = subset(whole, subset = log2nUMI > 9)
+cells <- length(colnames(x = whole))
+print(cells)
+```
+
+```{r,eval=FALSE}
+#May be unnecessary
+sum(whole[["RNA"]]@counts["Fcer2a",]>0 & whole[["RNA"]]@counts["Cd3d",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Fcer2a",]>0 & whole[["RNA"]]@counts["Cd3d",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
+```
+
+
+```{r}
+whole <- NormalizeData(object = whole, normalization.method = "LogNormalize", scale.factor = 10000)
+whole <- FindVariableFeatures(object = whole, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 3), dispersion.cutoff = c(0.5, Inf))
+whole <- ScaleData(object = whole, features = VariableFeatures(object = whole), vars.to.regress = c("nCount_RNA", "percent.mito"))
+
+```
+
+```{r}
+gc()
+```
+
+```{r}
+whole <- RunPCA(object = whole,
+                features =  VariableFeatures(object = whole),
+                dims = 1:30)
+
+```
+
+
+```{r}
+DimPlot(whole, reduction = "pca",group.by = "orig.ident")
+#limited batch effect observed
+```
+
+```{r}
+ElbowPlot(whole,ndims = 30, reduction = "pca")
+```
+
+```{r}
+DimHeatmap(whole,dims = 1:10)
+```
+
+
+```{r}
+
+
+## TSNE
+whole <- RunTSNE(object = whole, dims = 1:30)
+## CLUSTERING
+whole <- FindNeighbors(object = whole, dims = 1:30)
+whole <- FindClusters(object = whole, resolution = 1.0)
+```
+
+```{r}
+DimPlot(object = whole, reduction="tsne")
+```
+
+
+```{r}
+library(patchwork)
+library(scCustomize)
+library(qs)
+
+DimPlot_scCustom(seurat_object = whole, colors_use = DiscretePalette_scCustomize(num_colors = 25,
+    palette = "varibow"))
+```
+
+```{r}
+DimPlot(whole,group.by = "orig.ident",reduction = "tsne")
+```
+
+
+```{r}
+DimPlot(whole, reduction = "tsne",pt.size = 0.5)
+```
+
+
+
+```{r}
+VlnPlot(whole, features = c("Ccr2","Cd19","Cd1d1","Cd24a","Cd3d","Cd4"),ncol = 2)
+```
+
+
+
+```{r}
+VlnPlot(whole, features = c("Ppbp","Pf4"),ncol = 1)
+```
+
+
+```{r}
+expr.avg <- AverageExpression(whole, return.seurat = T)
+
+```
+
+
+
+```{r,warning=F,message=F}
+DoHeatmap(expr.avg,features =  c("Ccr2","Cd44","Ccr7","Cd28","Cd1d1","Cd24a","Cd19","Cd3d","Cd4","Cd8a","Cd93","Cr2","Fcer1a","Fcer2a","Flt3","Foxp3","Gzmk","Lyz2","Ncr1","S100a8","Sell","Siglech","Sirpa","Sox4","Tcrg-C1","Tcrg-C2","Xcr1","Zbtb32"),size = 3,group.bar.height = 0.01,draw.lines = F)+ 
+  scale_fill_gradientn(colors = c("blue", "white", "red"))+
+  guides(color="none")
+```
+
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Fcer1a","Tcrg-C1"),ncol = 2)
+```
+
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd8a","Cd4"),ncol = 2)
+```
+
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd93","Cr2"),ncol = 2)
+```
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd19"),ncol = 2)
+```
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd44","Sell"),ncol = 2)
+```
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd44","Ccr7"),ncol = 2)
+```
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd44","Cd28"),ncol = 2)
+```
+
+
+```{r}
+whole = RenameIdents(whole, `0` = "FO B cell")
+whole = RenameIdents(whole, `1` = "FO B cell")
+whole = RenameIdents(whole, `2` = "Naive CD4 T cell")
+whole = RenameIdents(whole, `3` = "Naive CD8 T cell")
+whole = RenameIdents(whole, `4` = "Transitional B cell")
+whole = RenameIdents(whole, `5` = "Naive CD8 T cell")
+whole = RenameIdents(whole, `6` = "Treg")
+whole = RenameIdents(whole, `7` = "MZ B cell")
+whole = RenameIdents(whole, `8` = "EM CD4 T cell")
+whole = RenameIdents(whole, `9` = "NK cell")
+whole = RenameIdents(whole, `10` = "Transitional B cell")
+whole = RenameIdents(whole, `18` = "Ambigous B cell")
+whole = RenameIdents(whole, `11` = "Sirpa+ cDC")
+whole = RenameIdents(whole, `12` = "Zbtb32+ B cell")
+whole = RenameIdents(whole, `13` = "Macrophage")
+whole = RenameIdents(whole, `15` = "Ccr2+ GD T cell")
+whole = RenameIdents(whole, `14` = "Gzmk+ CD8 T cell")
+whole = RenameIdents(whole, `16` = "Neutrophil")
+whole = RenameIdents(whole, `19` = "Ambigous B cell")
+whole = RenameIdents(whole, `17` = "Sox4+ GD T cell")
+whole = RenameIdents(whole, `20` = "Naive CD8 T cell")
+whole = RenameIdents(whole, `21` = "Xcr1+ cDC")
+whole = RenameIdents(whole, `22` = "Naive B cell")
+whole = RenameIdents(whole, `23` = "pDC")
+whole = RenameIdents(whole, `24` = "Mast cell")
+```
+
+```{r}
+whole = RenameIdents(whole, `Naive B cell` = "Transitional B cell")
+```
+
+```{r}
+DimPlot(whole, reduction = "tsne",pt.size = 0.5)
+```
+```{r}
+DimPlot_scCustom(seurat_object = whole, colors_use = DiscretePalette_scCustomize(num_colors = 19,
+    palette = "varibow"),group.by = "ident")
+```
+
+
+```{r}
+DimPlot(whole, reduction = "tsne",group.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Zbtb32"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Fcer1a"),reduction = "tsne",split.by = "orig.ident")
+```
+```{r}
+FeaturePlot(whole,features = c("Cd63"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Kit"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Gzmk"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Tox"),reduction = "tsne",split.by = "orig.ident",pt.size = 0.2) #still a bit all over the place
+```
+
+```{r}
+FeaturePlot(whole,features = c("Cd3d"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(whole,features = c("Cd19"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+VariableFeaturePlot(object = whole)
+```
+
+```{r,eval=FALSE}
+save(whole, file = paste(outdir, "whole_object.Robj", sep = ""))
+
+expData <- GetAssayData(object = whole, slot = 'data')
+save(expData, file="expData.Rda")
+
+dataForPlot <- as.data.frame(whole@reductions$tsne@cell.embeddings)
+dataForPlot$Sample <- whole@meta.data$orig.ident
+dataForPlot$Cluster <-  Idents(object = whole)
+dataForPlot$nUmi <- whole@meta.data$nCount_RNA
+dataForPlot$nGene <- whole@meta.data$nFeature_RNA
+dataForPlot$nUmiLog2 <- log2(whole@meta.data$nCount_RNA)
+dataForPlot$nGeneLog2 <- log2(whole@meta.data$nFeature_RNA)
+
+write.table(dataForPlot, "data_for_plot.tsv", sep="\t", quote=F)
+
+## FINDING ANS SAVING MARKERS
+whole.markers <- FindAllMarkers(object = whole,
+                                only.pos = TRUE,
+                                min.pct = 0.10,
+                                thresh.use = 0.10)
+write.table(whole.markers, "markers.tsv", sep="\t", quote=F, row.names=F)
+```
+
+## checking table manipulation for data analysis
+
+```{r}
+data = read_tsv("./data_for_plot.tsv")
+load("whole_object.Robj")
+```
+
+```{r}
+de_clusters <- function(current_cluster) {
+ groupA <- dplyr::filter(data, Cluster == current_cluster & Sample %in% c("Young"))$CellName
+ groupB <- dplyr::filter(data, Cluster == current_cluster & Sample %in% c("Aged"))$CellName
+ if (length(groupA) >= 3 && length(groupB) >= 3) {
+   both_markers <- FindMarkers(whole, ident.1=groupA, ident.2=groupB, test.use="MAST", min.pct=0.00, logfc.threshold = 0)
+   marker_genes <- row.names(both_markers)
+   mutate(both_markers, gene = marker_genes, cluster = current_cluster)
+ } else {
+   print(paste0('Cluster ', current_cluster, ': not enough cells'))
+   tibble(p_val = double(), avg_logFC = double(), pct.1 = double(), pct.2 = double(),
+          p_val_adj = double(), cluster = character(), gene = character())
+ }
+}
+```
+
+
+```{r}
+all_clusters <- names(table(data$Cluster))
+print(all_clusters)
+path="./"
+#apply(conditions_comparisons, 2, function(current_comparison) {
+for (i in all_clusters[1]) {
+   #output_file <- paste0(path, paste0('Spleen_Young_vs_Spleen_Aged_', i, 'filtered','.tsv'))
+   de_results_tbl <- lapply(i, de_clusters) %>% bind_rows()
+   #write_tsv(de_results_tbl, output_file)
+   #de_results_tbl <- de_results_tbl %>% filter(p_val_adj < 0.05) %>%
+  #                filter(abs(avg_log2FC) > 0.5) %>%
+  #                arrange(desc(abs(avg_log2FC)))
+}
+```
+
+
+
+```{r}
+ggplot(data = de_results_tbl) +
+  geom_point(aes(x = avg_log2FC, y = -log10(p_val_adj)))+
+  geom_vline(xintercept = -0.5,col="red") + 
+  geom_vline(xintercept = 0.5,col="red") +
+  geom_hline(yintercept = 1.5,col="red")
+```
+
+
+```{r}
+head(de_results_tbl)
+```
+
+```{r}
+test <- de_results_tbl %>% 
+        mutate(threshold = case_when(
+          (p_val_adj < 0.05) & (abs(avg_log2FC)) > 0.5 ~ "Pass",
+          .default = "Fail"
+        ))
+```
+
+```{r}
+ggplot(data = test) +
+  geom_point(aes(x = avg_log2FC, y = -log10(p_val_adj),col = threshold))+
+  geom_vline(xintercept = -0.5,col="red") + 
+  geom_vline(xintercept = 0.5,col="red") +
+  geom_hline(yintercept = 1.5,col="red") +
+  scale_color_manual(values = c("#00AFBB", "#E7B800"))+
+  xlab("Average Log2 Fold Change (Young/Aged)")+
+  ylab("-log10(adjusted P-value)")
+```
+
+

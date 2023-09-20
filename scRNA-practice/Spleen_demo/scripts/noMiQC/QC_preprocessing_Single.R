@@ -43,7 +43,7 @@ print("SoupX finished.")
 ############  mitochondrial RNA removal and low nFeatureRNA filtering #########
 
 #create object
-obj = CreateSeuratObject(out) #it is possible to assign names based on sample name with some downstream technical challenges
+obj = CreateSeuratObject(out,min.cells = 5,min.features = 1000) #it is possible to assign names based on sample name with some downstream technical challenges
 #output of eval is possibly non-writable
 
 obj[["percent.mt"]] = PercentageFeatureSet(object = obj, pattern = "^MT-|^mt-")
