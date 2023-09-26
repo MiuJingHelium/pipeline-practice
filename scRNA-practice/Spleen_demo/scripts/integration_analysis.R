@@ -6,6 +6,7 @@ library(Matrix)
 ### Can try to merge as a part of the the loop? 
 indir = "../outs/"
 outdir="./"
+condition_path = "../"
 samples = list.files(path=indir,full.names = F)
 n = length(samples)
 #objs = list(n)
@@ -84,15 +85,43 @@ whole = subset(whole, subset = log2nUMI > 9)
 cells <- length(colnames(x = whole))
 print(cells)
 
+#remove platelets
+sum(whole[["RNA"]]@counts["Ppbp",]>0 | whole[["RNA"]]@counts["Pf4",]>0)
+cell = colnames(whole)[!(whole[["RNA"]]@counts["Ppbp",]>0 | whole[["RNA"]]@counts["Pf4",]>0)]
+length(cell)
+whole = subset(whole, subset = CellName %in% cell)
+length(colnames(x=whole))
 
 ###### Expression signature based doublet removal ########
-#Loop over conditions:
+#operate over conditions:
 #Each condition involves a set of logical conditions (min = 2)
+#Condition would be a list of sets of genes that can't co-express
+#Condition will generate boolean vectors
+#ORing the conditions will return a boolean vector for final cell selection
+
+#Input would be a table of some rows. Each row is a gene set.
+
 whole[["CellName"]] <- colnames(whole)
+conditions <- read.table(paste0(condition_path,"conditions.tsv"))
+n = nrow(conditions)
+
+bools <- map(1:n,function(i){
+  whole[["RNA"]]@counts[conditions[i,1],]>0 & whole[["RNA"]]@counts[conditions[i,2],]>0
+}) #return a list with boolean vectors with the same length as the current number cells
 
 
+summary <- map(1:n,function(i){
+  sum(whole[["RNA"]]@counts[conditions[i,1],]>0 & whole[["RNA"]]@counts[conditions[i,2],]>0)
+}) 
 
+summary <- unlist(summary)
+conditions = cbind(conditions,summary)
+write.table(conditions,paste0(condition_path,"doublet_numbers.tsv"),sep = "\t",row.names = F,col.names = F)
 
+cell_bool <- Reduce("|",bools)
+cells <- colnames(whole)[!cell_bool]
+whole = subset(whole, subset = CellName %in% cells)
+length(colnames(x=whole))
 
 ##########################################################
 

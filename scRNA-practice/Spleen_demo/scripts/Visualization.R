@@ -15,7 +15,7 @@ library(gridExtra)#for plotting
 ###################### Visualization of DE data ####################
 
 
-path = "./raw_DE_tables/"
+path = "../manualQC/analysis/Major_cell_types/raw_DE_tables/" #path may be incorrect
 files = list.files(path = path,full.names = T)
 
 
@@ -40,5 +40,41 @@ plts = lapply(1:n, function(i) {
 grid.arrange(grobs = plts,ncol=2)
 #another version of placing plots together is available in QC_preprocessing_Single.R
 
-#############################################
+##########################################################
+
+############## Population ratio plot #####################
+
+path = "../manualQC/analysis/"
+load(paste0(path,"whole_object.Robj"))
+
+
+Aged_id_table = table(Idents(subset(whole, subset = orig.ident == "Aged")))
+Aged_id_table
+
+
+
+Young_id_table = table(Idents(subset(whole, subset = orig.ident == "Young")))
+Young_id_table
+
+
+id_table = left_join(as.data.frame(Young_id_table),as.data.frame(Aged_id_table),by=join_by(Var1==Var1)) %>%
+  rename("Var1" = "Cell.Type","Freq.x" = "Freq.Young","Freq.y" = "Freq.Aged")
+
+id_table = id_table %>% 
+  rowwise %>%
+  mutate(log2FC = log2(Freq.Aged/Freq.Young))%>%
+  arrange(desc(log2FC))
+
+
+
+as.data.frame(id_table)
+
+ggplot(data = id_table,aes(x=reorder(Cell.Type, -log2FC),y=log2FC,fill = Cell.Type))+
+  geom_bar(stat = "identity")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab("Cell Types")+
+  ylab("log2FC in cell number (Aged/Young)")
+
+
+##############################################################################
 

@@ -1,0 +1,277 @@
+---
+title: 'Analysis: annotation and diff'
+output: html_document
+date: "2023-09-10"
+---
+
+```{r}
+library("Seurat")
+library("tidyverse")
+library("Matrix")
+library("readr")
+library(MAST)
+#library(zellkonverter)
+```
+
+```{r}
+load("whole_object.Robj")
+```
+
+```{r}
+MF_DC = subset(whole, idents = c("Macrophage","Xcr1+ cDC","Sirpa+ cDC","pDC"))
+```
+
+```{r}
+FeaturePlot(MF_DC,features = c("Adgre1","Flt3"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(MF_DC,features = c("Icam2","Ccr2"),reduction = "tsne",split.by = "orig.ident")
+
+```
+```{r}
+FeaturePlot(MF_DC,features = c("Cx3cr1"),reduction = "tsne",split.by = "orig.ident")
+
+```
+
+
+
+```{r}
+FeaturePlot(whole, reduction = "tsne",features = c("Cd19"),ncol = 2,split.by = "orig.ident")
+```
+```{r}
+DoHeatmap(whole,features = VariableFeatures(whole),group.by = "ident")
+```
+
+
+```{r}
+TAA = subset(whole, ident = "Gzmk+ CD8 T cell")
+```
+
+```{r}
+TAA.avg = as.data.frame(AverageExpression(TAA, return.seurat = F))
+TAA.avg = cbind(rownames(TAA.avg),TAA.avg)
+colnames(TAA.avg) = c("Gene","Avg.Exp")
+```
+
+```{r}
+TAA.avg = TAA.avg[order(TAA.avg$Avg.Exp,decreasing = T),]
+```
+
+```{r}
+write.table(TAA.avg, "avgexp_TAA.tsv", sep="\t", quote=F, col.names=NA)
+```
+
+
+```{r}
+write.table(TAA.avg[1:500,], "avgexp_TA_top500.tsv", sep="\t", quote=F, col.names=NA)
+```
+
+```{r}
+Aged_id_table = table(Idents(subset(whole, subset = orig.ident == "Aged")))
+Aged_id_table
+```
+
+```{r}
+Young_id_table = table(Idents(subset(whole, subset = orig.ident == "Young")))
+Young_id_table
+```
+
+```{r}
+id_table = left_join(as.data.frame(Young_id_table),as.data.frame(Aged_id_table),by=join_by(Var1==Var1)) %>%
+     rename("Var1" = "Cell.Type","Freq.x" = "Freq.Young","Freq.y" = "Freq.Aged")
+
+```
+
+```{r}
+id_table = id_table %>% 
+  rowwise %>%
+  mutate(log2FC = log2(Freq.Aged/Freq.Young))%>%
+  arrange(desc(log2FC))
+```
+
+```{r}
+as.data.frame(id_table)
+```
+
+```{r}
+ggplot(data = id_table,aes(x=reorder(Cell.Type, -log2FC),y=log2FC,fill = Cell.Type))+
+  geom_bar(stat = "identity")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  xlab("Cell Types")+
+  ylab("log2FC in cell number (Aged/Young)")
+```
+
+
+
+
+
+
+```{r}
+data = read_tsv("data_for_plot.tsv")#problem with the original file format; column name for cell names is missing
+```
+
+
+
+```{r}
+de_clusters <- function(current_cluster) {
+ groupA <- dplyr::filter(data, Cluster == current_cluster & Sample %in% c("Young"))$CellName
+ groupB <- dplyr::filter(data, Cluster == current_cluster & Sample %in% c("Aged"))$CellName
+ if (length(groupA) >= 3 && length(groupB) >= 3) {
+   both_markers <- FindMarkers(whole, ident.1=groupA, ident.2=groupB, test.use="MAST", min.pct=0.00, logfc.threshold = 0)
+   marker_genes <- row.names(both_markers)
+   mutate(both_markers, gene = marker_genes, cluster = current_cluster)
+ } else {
+   print(paste0('Cluster ', current_cluster, ': not enough cells'))
+   tibble(p_val = double(), avg_logFC = double(), pct.1 = double(), pct.2 = double(),
+          p_val_adj = double(), cluster = character(), gene = character())
+ }
+}
+```
+
+
+
+```{r}
+all_clusters <- names(table(data$Cluster))
+path="./"
+#apply(conditions_comparisons, 2, function(current_comparison) {
+for (i in all_clusters) {
+   output_file <- paste0(path, 'DE/', paste0('Spleen_Young_vs_Spleen_Aged_', i, '.tsv'))
+   de_results_tbl <- lapply(i, de_clusters) %>% bind_rows()
+   write_tsv(de_results_tbl, output_file)
+}
+```
+
+
+```{r}
+#create average expression table
+cluster.averages <- AverageExpression(whole, return.seurat = FALSE)
+write.table(cluster.averages$RNA, "avg.exp.tsv", sep="\t", quote=F, col.names=NA)
+```
+
+
+### Analysis on more generic cell types
+
+```{r}
+#Create a vector for major cell types: B-cell, CD4-T-cell, CD8-T-cell, GD-T-cell, macrophage, DC, Neutrophils, Mast cells
+#Initialize
+CellType = character(length= ncol(whole@assays$RNA@counts))
+```
+
+```{r}
+CellType[grep("CD4",Idents(whole))] = "CD4 T cell"
+CellType[grep("Treg",Idents(whole))] = "CD4 T cell"
+CellType[grep("CD8",Idents(whole))] = "CD8 T cell"
+CellType[grep("Macrophage",Idents(whole))] = "Macrophage"
+CellType[grep("Neutrophil",Idents(whole))] = "Neutrophil"
+CellType[grep("B cell",Idents(whole))] = "B cell"
+CellType[grep("Mast cell",Idents(whole))] = "Mast cell"
+CellType[grep("GD T cell",Idents(whole))] = "GD T cell"
+CellType[grep("DC",Idents(whole))] = "DC"
+CellType[grep("NK",Idents(whole))] = "NK cell"
+```
+
+
+```{r}
+table(CellType)
+```
+
+```{r}
+whole@meta.data$CellType <- CellType
+```
+
+```{r}
+B_cells = subset(whole,subset = CellType == "B cell")
+```
+
+```{r}
+B_cells <- RunTSNE(object = B_cells, dims = 1:30)
+```
+
+
+```{r}
+FeaturePlot(B_cells,features = c("Cd1d1"),reduction = "tsne",split.by = "orig.ident")
+```
+
+
+```{r}
+FeaturePlot(B_cells,features = c("Fcer2a","Cr2"),reduction = "tsne",split.by = "orig.ident")
+```
+```{r}
+CD4T_cells = subset(whole,subset = CellType == "CD4 T cell")
+```
+
+```{r}
+CD4T_cells = RunTSNE(CD4T_cells,dims = 1:30)
+```
+
+```{r}
+FeaturePlot(CD4T_cells,features = c("Foxp3","Pdcd1"),reduction = "tsne",split.by = "orig.ident")
+```
+```{r}
+DimPlot(CD4T_cells,reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+CD8T_cells = subset(whole,subset = CellType == "CD8 T cell")
+```
+
+```{r}
+CD8T_cells = RunTSNE(CD8T_cells,dims = 1:30)
+```
+
+
+```{r}
+DimPlot(CD8T_cells,reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(CD8T_cells,features = c("Tox"),reduction = "tsne",split.by = "orig.ident")
+```
+
+```{r}
+FeaturePlot(CD8T_cells,features = c("Ccl5","Ifng"),reduction = "tsne",split.by = "orig.ident")
+```
+```{r}
+FeaturePlot(CD8T_cells, features = c("Itga4"),split.by = "orig.ident")
+```
+```{r}
+FeaturePlot(whole, features = c("Plaur"),split.by = "orig.ident")
+```
+```{r}
+FeaturePlot(whole, features = c("Eomes","Tbx21","Foxp3","Batf"),ncol = 2,pt.size = 0.05)
+```
+
+```{r}
+subseting1 <- character(ncol(CD8T_cells@assays$RNA@counts))
+condition1 <- CD8T_cells[["RNA"]]@counts["Cd44",]>0
+condition2 <- CD8T_cells[["RNA"]]@counts["Pdcd1",]>0
+condition3 <- CD8T_cells$orig.ident == "Aged"
+subseting1[condition1 & condition2 & condition3] <- "Aged CD44+ PD-1+"
+subseting1[condition1 & !condition2 & !condition3] <- "Young CD44+ PD-1-"
+subseting1[condition1 & !condition2 & condition3] <- "Aged CD44+ PD-1-"
+```
+
+```{r}
+CD8T_cells$subseting1 <- subseting1
+```
+
+```{r}
+FeaturePlot(CD8T_cells, features = c("Eomes","Tbx21"),ncol = 2,split.by = "subseting1") + 
+  theme(text=element_text(size=10))
+```
+
+```{r}
+#Create new data for plot
+dataForPlot <- as.data.frame(whole@reductions$tsne@cell.embeddings)
+dataForPlot$CellName <- rownames(dataForPlot)
+dataForPlot$Sample <- whole@meta.data$orig.ident
+dataForPlot$Cluster <-  CellType
+dataForPlot$nUmi <- whole@meta.data$nCount_RNA
+dataForPlot$nGene <- whole@meta.data$nFeature_RNA
+dataForPlot$nUmiLog2 <- log2(whole@meta.data$nCount_RNA)
+dataForPlot$nGeneLog2 <- log2(whole@meta.data$nFeature_RNA)
+write.table(dataForPlot, "./Major_Cell_Types/data_for_plot.tsv", sep="\t", quote=F,row.names = F)
+```
+
+

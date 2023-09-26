@@ -1,0 +1,83 @@
+---
+title: "post DE analysis"
+output: html_document
+date: "2023-09-20"
+---
+
+```{r}
+library(tidyverse)
+library(cowplot)#for plotting
+library(gridExtra)#for plotting
+```
+
+
+```{r}
+B_cell <- as.tibble(read.table(file = 'Spleen_Young_vs_Spleen_Aged_B cell.tsv',row.names = NULL,sep = "\t",header = T))
+CD8_T <- as.tibble(read.table(file = 'Spleen_Young_vs_Spleen_Aged_CD8 T cell.tsv',row.names = NULL,sep = "\t",header = T))
+CD4_T <- as.tibble(read.table(file = 'Spleen_Young_vs_Spleen_Aged_CD4 T cell.tsv',row.names = NULL,sep = "\t",header = T))
+Macrophage <- as.tibble(read.table(file = 'Spleen_Young_vs_Spleen_Aged_Macrophage.tsv',row.names = NULL,sep = "\t",header = T))
+```
+
+sort and filtering
+
+```{r}
+B_cell <- B_cell %>% 
+  filter(p_val_adj < 0.05) %>%
+  arrange(desc(abs(avg_log2FC))) %>%
+  write.table(file = "Spleen_Young_vs_Spleen_Aged_B cell.tsv",row.names = F,sep = "\t")
+```
+
+```{r}
+CD8_T <- CD8_T %>% 
+  filter(p_val_adj < 0.05) %>%
+  arrange(desc(abs(avg_log2FC))) %>%
+  write.table(file = "Spleen_Young_vs_Spleen_Aged_CD8 T cell.tsv",row.names = F,sep = "\t")
+```
+
+```{r}
+CD4_T <- CD4_T %>% 
+  filter(p_val_adj < 0.05) %>%
+  arrange(desc(abs(avg_log2FC))) %>%
+  write.table(file = "Spleen_Young_vs_Spleen_Aged_CD4 T cell.tsv",row.names = F,sep = "\t")
+```
+
+```{r}
+Macrophage <- Macrophage %>% 
+  filter(p_val_adj < 0.05) %>%
+  arrange(desc(abs(avg_log2FC))) %>%
+  write.table(file = "Spleen_Young_vs_Spleen_Aged_Macrophage.tsv",row.names = F,sep = "\t")
+```
+
+### Using newly generated tables
+
+```{r}
+path = "./raw_DE_tables/"
+files = list.files(path = path,full.names = T)
+```
+
+
+```{r}
+samples <- c("B cell","CD4 T cell","CD8 T cell","Macrophage")
+n = length(files)
+plts = lapply(1:n, function(i) {
+  data = read.table(file = files[i],row.names = NULL,sep = "\t",header = T)#This version has rowname problem
+  ggplot(data = data) +
+  geom_point(aes(x = avg_log2FC, y = -log10(p_val_adj),col = threshold))+
+  geom_vline(xintercept = -0.5,col="red") + 
+  geom_vline(xintercept = 0.5,col="red") +
+  geom_hline(yintercept = 1.5,col="red") +
+  scale_color_manual(values = c("#00AFBB", "#E7B800"))+
+  xlab("Average Log2 Fold Change (Young/Aged)")+
+  ylab("-log10(adjusted P-value)")+
+  labs(title = samples[i])
+  }
+)
+
+
+
+```
+
+```{r}
+grid.arrange(grobs = plts,ncol=2)
+```
+
