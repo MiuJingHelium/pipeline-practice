@@ -92,7 +92,8 @@ gobs <- list(
 )
 
 g <- grid.arrange(grobs = gobs, ncol = 3)
-ggsave(paste0(path,"dimplots.pdf"),plot=g)
+ggsave(paste0(path,"dimplots.pdf"),plot=g,height=60, width=90, units = "cm")
+#the height and width parameters are essential for making good plots
 
 cluster.averages <- AverageExpression(CD8, return.seurat = FALSE)
 write.table(cluster.averages$originalexp, paste0(path,"CD8_avgexp_harmony.tsv"), sep="\t", quote=F, col.names=NA)
