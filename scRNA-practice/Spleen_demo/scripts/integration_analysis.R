@@ -1,6 +1,7 @@
 library(Seurat)
 library(tidyverse)
 library(Matrix)
+library(harmony)
 
 ### The script can be hard to automate without knowing the actual names
 ### Can try to merge as a part of the the loop? 
@@ -125,7 +126,8 @@ length(colnames(x=whole))
 
 ##########################################################
 
-################# START ANALYSIS #########################
+################# START ANALYSIS AND **INTEGRATION**  #########################
+#### Change parameters if appropriate #####
 
 whole <- NormalizeData(object = whole, normalization.method = "LogNormalize", scale.factor = 10000)
 whole <- FindVariableFeatures(object = whole, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 3), dispersion.cutoff = c(0.5, Inf))
@@ -135,10 +137,11 @@ gc()
 whole <- RunPCA(object = whole,
                 features =  VariableFeatures(object = whole),
                 dims = 1:30)
-
-whole <- RunTSNE(object = whole, dims = 1:30)
+whole <- RunHarmony(object = whole, group.by.vars = c("Sample"), assay.use = "RNA", max.iter.harmony = 20)
+whole <- RunTSNE(object = whole, dims = 1:30,reduction="harmony")
+whole <- RunUMAP(object = whole, dims = 1:30,reduction="harmony")
 ## CLUSTERING
-whole <- FindNeighbors(object = whole, dims = 1:30)
+whole <- FindNeighbors(object = whole, dims = 1:30,reduction = "harmony", k.param = 2)
 whole <- FindClusters(object = whole, resolution = 1.0)
 
 expr.avg <- AverageExpression(whole, return.seurat = T)#Seurat object with the avg exp
