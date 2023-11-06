@@ -1,0 +1,732 @@
+---
+title: "CD8T_Subset"
+output: html_document
+---
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(harmony)
+```
+
+```{r}
+PBMC_CD8T_markersG = c("CD8A","SELL","CCR7","CCR4","CCR5","CCR9","CCL4","CCL5","CX3CR1","CXCR3","IL2","IL4","IL4R","IL7R","ITGAE","CD69","B3GAT1","KLRB1","KLRF1","KLRK1","KLRC2","GZMK","GZMB","HLA-DRB1","MKI67","TYROBP","MX1","ISG15")
+```
+
+```{r}
+PBMC_CD8T_markersTF = c("CD8A","TCF7","LEF1","ZNF683","IKZF2","EOMES","TBX21","STAT1")
+```
+
+
+
+```{r}
+load("CD8_TissueSubset.Robj")
+```
+
+
+```{r}
+table(CD8_TissueSubset@meta.data$Manually_curated_celltype)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+```
+## Re-scale everything
+
+```{r}
+CD8_TissueSubset <- NormalizeData(object = CD8_TissueSubset, normalization.method = "LogNormalize", scale.factor = 10000)
+gc()
+```
+
+```{r}
+CD8_TissueSubset <- FindVariableFeatures(object = CD8_TissueSubset, selection.method = 'mean.var.plot', mean.cutoff = c(0.01, Inf), dispersion.cutoff = c(0.5, Inf))
+gc()
+```
+
+
+```{r}
+top20 <- head(VariableFeatures(CD8_TissueSubset), 20)
+
+# plot variable features with and without labels
+plot1 <- VariableFeaturePlot(CD8_TissueSubset)
+plot2 <- LabelPoints(plot = plot1, points = top20, repel = TRUE)
+plot2
+```
+
+
+```{r}
+CD8_TissueSubset@assays$originalexp@var.features <-  CD8_TissueSubset@assays$originalexp@var.features[!grepl("^TRA|^TRB|^IGH|^IGK|MAMU-A", CD8_TissueSubset@assays$originalexp@var.features)]
+CD8_TissueSubset <- ScaleData(object = CD8_TissueSubset, features = VariableFeatures(object = CD8_TissueSubset), vars.to.regress = c("nCount_originalexp", "percent.mito"))
+
+```
+```{r}
+length(colnames(x=CD8_TissueSubset))
+```
+
+```{r}
+top25 <- head(VariableFeatures(CD8_TissueSubset), 25)
+
+# plot variable features with and without labels
+plot1 <- VariableFeaturePlot(CD8_TissueSubset)
+plot2 <- LabelPoints(plot = plot1, points = top25, repel = TRUE)
+plot2
+```
+
+
+```{r}
+ElbowPlot(CD8_TissueSubset,ndims = 50) + geom_hline(yintercept = 2,col="red") + geom_hline(yintercept = 1.5, col ="blue") + geom_hline(yintercept = 1, col ="purple")+ labs(legend =  c( "elbow plot" = "black", "std = 2" = "red", "std = 1.5" = "blue","std = 1" = "purple"))
+```
+
+```{r}
+stdv <- CD8_TissueSubset[["pca"]]@stdev
+sum.stdv <- sum(CD8_TissueSubset[["pca"]]@stdev)
+percent.stdv <- (stdv / sum.stdv) * 100
+cumulative <- cumsum(percent.stdv)
+co1 <- which(cumulative > 90 & percent.stdv < 5)[1]
+co2 <- sort(which((percent.stdv[1:length(percent.stdv) - 1] - 
+                     percent.stdv[2:length(percent.stdv)]) > 0.1), 
+            decreasing = T)[1] + 1
+min.pc <- min(co1, co2)
+```
+
+
+
+
+```{r}
+CD8_TissueSubset <- RunPCA(object = CD8_TissueSubset,
+                features =  VariableFeatures(object = CD8_TissueSubset),
+                dims = 1:45)
+```
+
+```{r}
+CD8_TissueSubset <- JackStraw(CD8_TissueSubset, dims = 45,num.replicate = 100,prop.freq = 0.05)
+CD8_TissueSubset <- ScoreJackStraw(CD8_TissueSubset, dims = 1:45)
+JackStrawPlot(CD8_TissueSubset, dims = 1:45)
+```
+
+
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Sex")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Donor")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Organ")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Tissue_type")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Manually_curated_celltype")
+```
+
+```{r}
+stdv <- CD8_TissueSubset[["pca"]]@stdev
+sum.stdv <- sum(CD8_TissueSubset[["pca"]]@stdev)
+percent.stdv <- (stdv / sum.stdv) * 100
+cumulative <- cumsum(percent.stdv)
+co1 <- which(cumulative > 90 & percent.stdv < 5)[1]
+co2 <- sort(which((percent.stdv[1:length(percent.stdv) - 1] - 
+                     percent.stdv[2:length(percent.stdv)]) > 0.1), 
+            decreasing = T)[1] + 1
+min.pc <- min(co1, co2)
+```
+
+```{r}
+#PC covariate analysis
+#D=Donor, S=Sex, O=Organ, A=Age
+PC1 = CD8_TissueSubset@reductions$pca@cell.embeddings[,"PC_1"]
+PC2 = CD8_TissueSubset@reductions$pca@cell.embeddings[,"PC_2"]
+D = CD8_TissueSubset@meta.data$Donor
+S = CD8_TissueSubset@meta.data$Sex
+O = CD8_TissueSubset@meta.data$Organ
+A = CD8_TissueSubset@meta.data$Age_range
+```
+
+```{r}
+M = CD8_TissueSubset@meta.data$Manually_curated_celltype
+Ts = CD8_TissueSubset@meta.data$Tissue_type
+```
+
+
+```{r}
+PC1_D = lm(PC1 ~ D -1)
+summary(PC1_D)
+PC2_D = lm(PC2 ~ D -1) 
+summary(PC2_D)
+```
+
+```{r}
+PC1_S = lm(PC1 ~ S)
+summary(PC1_S)
+PC2_S = lm(PC2 ~ S)
+summary(PC2_S)
+```
+
+
+
+```{r}
+PC1_A = lm(PC1 ~ A)
+summary(PC1_A)
+```
+
+```{r}
+PC2_A = lm(PC2 ~ A)
+summary(PC2_A)
+```
+
+```{r}
+PC1_O = lm(PC1 ~ O)
+summary(PC1_O)
+```
+
+```{r}
+PC2_O = lm(PC2 ~ O)
+summary(PC2_O)
+```
+
+```{r}
+PC1_M = lm(PC1 ~ M)
+summary(PC1_M)
+PC2_M = lm(PC2 ~ M)
+summary(PC2_M)
+```
+
+```{r}
+PC1_Ts = lm(PC1 ~ Ts)
+summary(PC1_Ts)
+PC2_Ts = lm(PC2 ~ Ts)
+summary(PC2_Ts)
+```
+
+
+```{r}
+Radj <- function(Rsq,n,p){
+  return(1-(1-Rsq)*((n-1)/(n-p-1)))
+}
+```
+
+```{r}
+Radj(0.1187, n= 7143, p=4)
+```
+
+```{r}
+CD8_TissueSubset <- RunHarmony(object = CD8_TissueSubset, group.by.vars = c("Donor"), assay.use = "originalexp", max.iter.harmony = 20)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "pca",group.by = "Donor")
+```
+### Trying 40 PCs (Oct.29)
+
+
+```{r}
+CD8_TissueSubset <- RunHarmony(object = CD8_TissueSubset, group.by.vars = c("Donor"), assay.use = "originalexp", max.iter.harmony = 20)
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, dims = 1:40, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, dims = 1:40, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, dims = 1:40, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:40,
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+save(CD8_TissueSubset,file="CD8_TissueSubset_40PC.Robj")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+
+
+
+
+```{r}
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, dims = 1:30, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, dims = 1:30, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, dims = 1:30, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:30,
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCR7"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("CCL4","CCL5"),reduction = "umap")
+```
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("MKI67","TYROBP"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("GZMB","GZMK"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("MX1","ISG15"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("IL2","IL4"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("IL4R","IL7R"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("IL18R1","IL1R2"),reduction = "umap")
+```
+
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("CCR9","CCR4"),reduction = "umap")
+```
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("CCR5","CCR4"),reduction = "umap")
+```
+
+
+```{r}
+save(CD8_TissueSubset, file = "CD8_TissueSubset_30PC.Robj")
+```
+
+
+```{r}
+load("CD8_TissueSubset_30PC.Robj")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersG,cluster.idents = T) + RotatedAxis()
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+```{r}
+CD8_TissueSubset <- JackStraw(CD8_TissueSubset, num.replicate = 100,prop.freq = 0.1)
+CD8_TissueSubset <- ScoreJackStraw(CD8_TissueSubset, dims = 1:20)
+JackStrawPlot(CD8_TissueSubset, dims = 1:20)
+```
+
+
+
+```{r}
+mat <- CD8_TissueSubset@assays$originalexp@scale.data
+pca <- CD8_TissueSubset@reductions$pca
+
+total_variance <- sum(matrixStats::rowVars(mat))
+
+eigValues = (pca@stdev)^2  ## EigenValues
+varExplained = eigValues / total_variance
+```
+
+
+```{r}
+plot(1:50, cumsum(varExplained),type = "l")
+```
+
+
+
+```{r}
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, dims = 1:20, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, dims = 1:20, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, dims = 1:20, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:20,
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCR7"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCL4","CCL5"),reduction = "umap")
+
+
+FeaturePlot(CD8_TissueSubset,features = c("CCR9","CCR4"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCR5","CCR7"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CX3CR1","CXCR3"),reduction = "umap")
+
+FeaturePlot(CD8_TissueSubset,features = c("MKI67","TYROBP"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("GZMB","GZMK"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("MX1","ISG15"),reduction = "umap")
+
+FeaturePlot(CD8_TissueSubset,features = c("IL2","IL4"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("IL4R","IL7R"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("IL18R1"),reduction = "umap")
+
+```
+
+
+```{r}
+save(CD8_TissueSubset, file = "CD8_TissueSubset_20PC.Robj")
+```
+
+
+```{r}
+load("CD8_TissueSubset_20PC.Robj")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersG,cluster.idents = T) + RotatedAxis()
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+
+```{r}
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, dims = 1:16, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, dims = 1:16, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, dims = 1:16, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:16,
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCR7"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCL4","CCL5"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCR9","CCR4"),reduction = "umap")
+```
+
+```{r}
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, dims = 1:10, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, dims = 1:10, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, dims = 1:10, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:10,
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCR7"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCL4","CCL5"),reduction = "umap")
+
+
+FeaturePlot(CD8_TissueSubset,features = c("CCR9","CCR4"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CCR5","CCR7"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("CX3CR1","CXCR3"),reduction = "umap")
+
+FeaturePlot(CD8_TissueSubset,features = c("MKI67","TYROBP"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("GZMB","GZMK"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("MX1","ISG15"),reduction = "umap")
+
+FeaturePlot(CD8_TissueSubset,features = c("IL2","IL4"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("IL4R","IL7R"),reduction = "umap")
+FeaturePlot(CD8_TissueSubset,features = c("IL18R1"),reduction = "umap")
+
+```
+
+```{r}
+save(CD8_TissueSubset, file = "CD8_TissueSubset_10PC.Robj")
+```
+
+
+```{r}
+load("CD8_TissueSubset_10PC.Robj")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersG,cluster.idents = T,group.by = "originalexp_snn_res.0.5") + RotatedAxis()
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T,group.by = "originalexp_snn_res.0.5") + RotatedAxis()
+```
+
+```{r}
+Idents(CD8_TissueSubset) <- CD8_TissueSubset$seurat_clusters
+avg.exp <- AverageExpression(CD8_TissueSubset,return.seurat=T)
+```
+
+
+```{r}
+DoHeatmap(avg.exp,size=3.5,features = c(PBMC_CD8T_markersG,PBMC_CD8T_markersTF),draw.lines = F,angle = 90)+ scale_fill_gradientn(colors = c("blue", "white", "red"))
+```
+
+
+### Decided to use top 10 PCs and try different resolutions (OCT 23)
+
+```{r}
+#load("CD8_TissueSubset_20PC.Robj")
+```
+
+
+```{r}
+for(res in seq(0.1, 1, 0.1))  {
+    CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony", dims = 1:10,
+    resolution = res, print.output = 0, save.SNN = TRUE)
+}
+gc()
+
+```
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.1")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.2")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.3")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.4")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.5")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.6")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.7")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.8")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.0.9")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "originalexp_snn_res.1")
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Organ")
+```
+
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap",cells = CD8_TissueSubset@meta.data$CellName[CD8_TissueSubset@meta.data$originalexp_snn_res.0.6 == 0],group.by = "originalexp_snn_res.0.6" )
+DimPlot(CD8_TissueSubset,reduction = "umap",cells = CD8_TissueSubset@meta.data$CellName[CD8_TissueSubset@meta.data$originalexp_snn_res.0.6 == 0])
+```
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "umap",cells = CD8_TissueSubset@meta.data$CellName[CD8_TissueSubset@meta.data$originalexp_snn_res.0.6 == 10],group.by = "originalexp_snn_res.0.6" )
+DimPlot(CD8_TissueSubset,reduction = "umap",cells = CD8_TissueSubset@meta.data$CellName[CD8_TissueSubset@meta.data$originalexp_snn_res.0.6 == 10])
+```
+
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("ITGAE","ITGB7"),reduction = "umap")
+```
+
+
+```{r}
+FeaturePlot(CD8_TissueSubset,reduction = "umap",features = "TYROBP",cells = CD8_TissueSubset@meta.data$CellName[CD8_TissueSubset@meta.data$originalexp_snn_res.0.6 == 2])
+```
+```{r}
+library(cowplot)
+```
+
+```{r}
+p <- FeaturePlot(CD8_TissueSubset,reduction = "umap",features = "GZMK",split.by = "originalexp_snn_res.0.6",combine = F)
+
+g <- plot_grid(plotlist = p, ncol=4)
+
+
+ggsave(filename = "CD8_TissueSubset_topc10PC_GZMK_splitbyres06.pdf",plot = g, height = 90, width = 60,units = "cm")
+```
+
+```{r}
+#g <- FeaturePlot(CD8_TissueSubset,reduction = "umap",features = "CX3CR1",split.by = "originalexp_snn_res.0.6",ncol = 3)
+#ggsave(filename = "CD8_TissueSubset_topc10PC_CX3CR1_splitbyres06.pdf",plot = g, height = 90, width = 60,units = "cm")
+```
+
+```{r}
+RidgePlot(CD8_TissueSubset,features = "TYROBP",group.by = "originalexp_snn_res.0.6",log = T)
+```
+
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("GZMK","GZMB"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCL5"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("CX3CR1","CXCR3"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("SELL","CCR4"),reduction = "umap")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("IL4R","IL7R"),reduction = "umap")
+```
+
+```{r}
+RidgePlot(CD8_TissueSubset,features = c("SELL"),group.by = "Organ")
+```
+
+```{r}
+PBMC_CD8T_markersG = c("CD8A","SELL","CCR7","CCR4","CCR5","CCR9","CCL4","CCL5","CX3CR1","CXCR3","IL2","IL4","IL4R","IL7R","ITGAE","CD69","B3GAT1","KLRB1","KLRF1","KLRK1","KLRC2","GZMK","GZMB","HLA-DRB1","MKI67","TYROBP","MX1","ISG15")
+
+PBMC_CD8T_markersTF = c("CD8A","TCF7","LEF1","ZNF683","IKZF2","EOMES","TBX21","STAT1")
+```
+
+
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T,group.by = "originalexp_snn_res.0.6") + RotatedAxis()
+```
+
+```{r}
+Naive_CD8 <- subset(CD8_TissueSubset,subset = originalexp_snn_res.0.9 == 0)
+save(Naive_CD8,file="Naive_CD8_TissueSubset.Robj")
+```
+
+```{r}
+#Further isolate 6 and 7 from res0.9
+C6_CD8_res09 <- subset(CD8_TissueSubset,subset = originalexp_snn_res.0.9 == 6)
+
+```
+
+```{r}
+save(C6_CD8_res09,file = "C6_CD8_res09_TissueSubset.Robj")
+```
+
+```{r}
+C7_CD8_res09 <- subset(CD8_TissueSubset,subset = originalexp_snn_res.0.9 == 7)
+save(C7_CD8_res09,file = "C7_CD8_res09_TissueSubset.Robj")
+```
+
+```{r}
+cells_to_keep = CD8_TissueSubset@meta.data$CellName[!(CD8_TissueSubset@meta.data$originalexp_snn_res.0.9 %in% c(0,6,7))]
+```
+
+```{r}
+CRest_CD8_res09 <- subset(CD8_TissueSubset,idents = seq(0,13,1)[!(seq(0,13,1)%in% c(0,6,7))])
+```
+
+
+```{r}
+save(CRest_CD8_res09,file = "CRest_CD8_res09_TissueSubset.Robj")
+```
+
+```{r}
+save(CD8_TissueSubset,file = "CD8_TissueSubset_10PC.Robj")
+```
+
+##### Resubset the data because of previous errors (Oct.22)
+Note: because upstream subsetting was wrong, everything was started from scratch on Oct.23
+
+```{r}
+load("CD8_TissueSubset_10PC.Robj")
+```
+
+```{r}
+FeaturePlot(CD8_TissueSubset,features = c("CD69"),reduction = "umap")
+```
+
+
+
+```{r}
+cells_to_keep = CD8_TissueSubset@meta.data$CellName[!(CD8_TissueSubset@meta.data$originalexp_snn_res.0.9 %in% c(0,6,7))]
+```
+
+```{r}
+CRest_CD8_res09 <- subset(CD8_TissueSubset,idents = seq(0,13,1)[!(seq(0,13,1)%in% c(0,6,7))])
+```
+
+### Using HGV for dimension reduction (Oct.27)
+
+```{r}
+load("CD8_TissueSubset_30PC.Robj")
+```
+
+```{r}
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, features = VariableFeatures(CD8_TissueSubset), reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, features = VariableFeatures(CD8_TissueSubset), reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, features = VariableFeatures(CD8_TissueSubset), reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony",
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T) + RotatedAxis()
+```
+```{r}
+top500 <- head(VariableFeatures(CD8_TissueSubset), 500)
+CD8_TissueSubset <- RunUMAP(CD8_TissueSubset, features = top500, reduction = "harmony")
+gc()
+CD8_TissueSubset <- RunTSNE(CD8_TissueSubset, features = top500, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindNeighbors(CD8_TissueSubset, features = top500, reduction = "harmony")
+gc()
+CD8_TissueSubset <- FindClusters(object = CD8_TissueSubset, reduction = "harmony",
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(CD8_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(CD8_TissueSubset,reduction = "tsne")
+DimPlot(CD8_TissueSubset,reduction = "umap")
+```
+
+```{r}
+DotPlot(CD8_TissueSubset, features = PBMC_CD8T_markersTF,cluster.idents = T) + RotatedAxis()
+```

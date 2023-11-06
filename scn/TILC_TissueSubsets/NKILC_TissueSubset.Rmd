@@ -1,0 +1,119 @@
+---
+title: "NK/ILC Tissue Subsets"
+output: html_document
+---
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(harmony)
+```
+
+```{r}
+PBMC_NK_markersG = c("IFNG","NCAM1","CCR7","IL2RB","IL7R","IL32","XCL1","GZMK","GZMH","GZMB","KLRB1","KLRC1","KLRC2","KLRG1","PRF1","CXCR1","CX3CR1","CD160","FCGR3A","MKI67")
+
+PBMC_NK_markersTF = c("IFNG","NCAM1","MYC","TCF7","EOMES","BACH2","JUND","FOSB","TBX21","ZEB2","PRDM1","ZBTB38")
+```
+
+
+```{r}
+load("NKILC_TissueSubset_30PC.Robj")
+```
+
+```{r}
+DimPlot(NKILC_TissueSubset,reduction = "pca",group.by = "Sex")
+
+DimPlot(NKILC_TissueSubset,reduction = "pca",group.by = "Donor")
+
+DimPlot(NKILC_TissueSubset,reduction = "pca",group.by = "Organ")
+
+DimPlot(NKILC_TissueSubset,reduction = "pca",group.by = "Tissue_type")
+DimPlot(NKILC_TissueSubset,reduction = "pca",group.by = "Manually_curated_celltype")
+```
+```{r}
+top15 <- head(VariableFeatures(NKILC_TissueSubset), 15)
+
+# plot variable features with and without labels
+plot1 <- VariableFeaturePlot(NKILC_TissueSubset)
+plot2 <- LabelPoints(plot = plot1, points = top15, repel = TRUE)
+plot2
+```
+```{r}
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne")
+DimPlot(NKILC_TissueSubset,reduction = "umap")
+```
+
+```{r}
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersG,cluster.idents = T) + RotatedAxis()
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+```{r}
+top500 <- head(VariableFeatures(NKILC_TissueSubset), 500)
+NKILC_TissueSubset <- RunUMAP(NKILC_TissueSubset, features = top500, reduction = "harmony")
+gc()
+NKILC_TissueSubset <- RunTSNE(NKILC_TissueSubset, features = top500, reduction = "harmony")
+gc()
+NKILC_TissueSubset <- FindNeighbors(NKILC_TissueSubset, features = top500, reduction = "harmony")
+gc()
+NKILC_TissueSubset <- FindClusters(object = NKILC_TissueSubset, reduction = "harmony",
+    resolution = 0.5, print.output = 0, save.SNN = TRUE)
+```
+
+```{r}
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne")
+DimPlot(NKILC_TissueSubset,reduction = "umap")
+```
+
+
+```{r}
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+
+
+
+
+```{r}
+load("NKILC_TissueSubset_20PC.Robj")
+```
+
+
+```{r}
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne")
+DimPlot(NKILC_TissueSubset,reduction = "umap")
+```
+```{r}
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersG,cluster.idents = T) + RotatedAxis()
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersTF,cluster.idents = T) + RotatedAxis()
+```
+
+```{r}
+load("NKILC_TissueSubset_10PC.Robj")
+```
+
+
+```{r}
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Donor")
+DimPlot(NKILC_TissueSubset,reduction = "umap",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne",group.by = "Manually_curated_celltype")
+DimPlot(NKILC_TissueSubset,reduction = "tsne")
+DimPlot(NKILC_TissueSubset,reduction = "umap")
+```
+```{r}
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersG,cluster.idents = T) + RotatedAxis()
+DotPlot(NKILC_TissueSubset, features = PBMC_NK_markersTF,cluster.idents = T) + RotatedAxis()
+```
